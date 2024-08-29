@@ -3,6 +3,8 @@ Group Project for User Interfaces
 
 
 ## Github Repository Rules
+### Cloning this repository
+- Please follow [this documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on cloning this repo 
 ### Creating a branch
 - When creating a branch please make your target branch the dev branch
 ### Commits
@@ -17,3 +19,5 @@ Group Project for User Interfaces
 - You don't need to squash your commits into the main branch when merging
 ### Squashing Commits
 - Squashing commits into the dev branch will help keep a clean working tree and prevent confusion
+### Github Cheatsheet
+- Click [here](https://education.github.com/git-cheat-sheet-education.pdf)
