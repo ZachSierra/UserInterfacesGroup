@@ -4,11 +4,11 @@ $secondary: #3E5638;
 $blue: #349DD6;
 $teal: #309C9E;
 
-@import '../../node_modules/bootstrap/scss/functions';
-@import '../../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
 
 // Bootstrap Main
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap/scss/bootstrap';
 
 
 
