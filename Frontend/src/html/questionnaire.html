@@ -22,28 +22,30 @@ Written by: Anna Vielma and Katherine Raguini
         <link rel="stylesheet" href="../stylesheets/my-colors.css">
     </head>
     <body>
-        <!--Added zach navigation-->   
-        <nav class="navbar navbar-expand-lg bg-primary fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">FindMyPlant</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Green House</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./questionnaire.html">Quiz</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="account.html">Account</a>
-                        </li>
-                    </ul>
+        <section id="navigation-bar">
+            <!--Added zach navigation-->   
+            <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">FindMyPlant</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Greenhouse</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="account.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </section>
         <!--html body and the questionnaire questions-->
         <div class="quiz-container text-center">
             <div id="question-number" class="quiz-header" >Question 1</div>
@@ -61,6 +63,7 @@ Written by: Anna Vielma and Katherine Raguini
             </div>   
         </div>
 
+        
 
         <script src="../scripts/questionnaire.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
