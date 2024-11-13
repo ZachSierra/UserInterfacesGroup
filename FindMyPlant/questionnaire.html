@@ -1,3 +1,12 @@
+<!--
+This is the questionnaire html, which is the frontend written in html and bootstrap
+and the backend is written in the javascript code. 
+
+Written by: Anna Vielma and Katherine Raguini
+-->
+
+
+<!--html header and imports bootstrap-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +22,7 @@
 </head>
 <body>
 
+<!--html body and the questionnaire questions-->
 <div class="quiz-container text-center">
     <div id="question-number" class="quiz-header" >Question 1</div>
     <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
@@ -29,6 +39,7 @@
     </div>   
 </div>
 
+<!--javascript changes out question number, question, and answer choices-->
 <script>
     // Array of questions with choices
     const questions = [
@@ -125,6 +136,7 @@
         adjustGridLayout();
     }
 
+    // Function to adjust the grid layout based on the number of visible cards 3 or 4
     function adjustGridLayout() {
         const visibleCards = Array.from(document.querySelectorAll(".card"))
             .filter(card => card.style.display !== "none");
