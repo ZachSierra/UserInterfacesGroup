@@ -60,7 +60,26 @@ Written by: Anna Vielma and Katherine Raguini
             </div>    
             <div class="skip-container">
                 <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
-            </div>   
+            </div> 
+             <!-- End-of-quiz options -->
+    <div id="end-options" style="display: none;" class="completion-popup">
+        <h2>All Done! Ready when you are...</h2>
+        <div class="completion-buttons">
+            <button onclick="restartQuiz()" class="btn btn-primary">Let’s start over </button>
+            <button class="btn btn-primary" onclick="submitQuiz()">I loved my answers Let's Go!</button>
+        </div>
+        <button onclick="showResponses()" class="btn btn-secondary review-button">Review My Answers</button>
+    </div>
+
+    <!-- Modal for displaying responses -->
+    <div id="responseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Your Answers</h2>
+            <div id="responses-list"></div>
+            <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+        </div>
+    </div>  
         </div>
 
         

@@ -66,6 +66,9 @@ const questions = [
 
 let currentQuestionIndex = 0;
 
+// Array to store user answers
+let userChoices = [];
+
 // Function to load a question based on the current index
 function loadQuestion() {
     // Check if there are more questions
@@ -73,6 +76,15 @@ function loadQuestion() {
         document.getElementById("question-text").textContent = "Thank you for completing the quiz!";
         document.querySelector(".card-container").style.display = "none";
         document.querySelector(".skip-button").style.display = "none";
+            // document.getElementById("review-section").style.display = "block";
+        document.getElementById("end-options").style.display = "block"; // Show end options
+
+        // Populate the review section with the user's choices
+        const answersList = document.getElementById("answers-list");
+        answersList.innerHTML = '';
+        userChoices.forEach(answer => {
+            answersList.innerHTML += `<p><strong>${answer.question}</strong><br>Answer: ${answer.answer}</p>`;
+        });
         return;
     }
 
@@ -111,8 +123,11 @@ function selectChoice(choiceIndex) {
     const selectedChoice = questions[currentQuestionIndex].choices[choiceIndex];
     //alert(`You selected: ${selectedChoice}`);
 
+    // Store the user's choice in the array
+    userChoices.push({ question: questions[currentQuestionIndex].question, answer: selectedChoice });
     // Move to the next question
     currentQuestionIndex++;
+
     loadQuestion();
 }
 
@@ -120,6 +135,43 @@ function selectChoice(choiceIndex) {
 function skipQuestion() {
     currentQuestionIndex++;
     loadQuestion();
+}
+
+// Function to restart the quiz
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    userChoices = [];
+    document.querySelector(".card-container").style.display = "block";
+    document.querySelector(".skip-button").style.display = "inline-block";
+    document.getElementById("end-options").style.display = "none";
+    loadQuestion();
+}
+
+// Function to submit the quiz
+function submitQuiz() {
+    alert('Quiz submitted!');
+    // You can add additional actions here, such as sending the data to a backend server.
+    // Reset the UI after submission (optional)
+    startOver();
+}
+
+function showResponses() {
+    const responseList = document.getElementById("responses-list");
+    responseList.innerHTML = ""; // Clear previous responses
+
+    userChoices.forEach((choice, index) => {
+        const responseItem = document.createElement("p");
+        responseItem.textContent = `Q${index + 1}: ${choice.question} - Your answer: ${choice.answer}`;
+        responseList.appendChild(responseItem);
+    });
+
+    // Make sure the modal is displayed
+    document.getElementById("responseModal").style.display = "flex";
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById("responseModal").style.display = "none";
 }
 
 // Load the first question initially
