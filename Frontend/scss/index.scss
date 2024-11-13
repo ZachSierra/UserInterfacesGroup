@@ -1,0 +1,13 @@
+.circle-image {
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(0deg, rgba(98, 158, 83, 0.81) 0%, rgba(98, 158, 83, 0.81) 100%);
+  border-radius: 100%;
+}
+
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+// Bootstrap Main
+@import '../node_modules/bootstrap/scss/bootstrap';
