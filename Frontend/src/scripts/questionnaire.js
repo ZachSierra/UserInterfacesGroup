@@ -1,3 +1,5 @@
+//This javascript changes out question number, question, and answer choices in questionnaire.html
+// Array of questions with choices
 const questions = [
     {
         question: "Do you prefer indoor or outdoor plants?",
@@ -53,7 +55,7 @@ const questions = [
     },
     {
         question: "What type of colors do you prefer in your plants?",
-        choices: ["Green", "Vibrant colors (red, pink, purple, blue)", "Subtle tones (white, pale yellow)"]
+        choices: ["Green", "Vibrant colors (red, pink, blue)", "Subtle tones (white, pale yellow)"]
     },
     {
         question: "What kind of atmosphere are you trying to create with your plants?",
@@ -88,12 +90,26 @@ function loadQuestion() {
     for (let i = questionData.choices.length; i < 3; i++) {
         document.getElementById(`choice-${i}`).style.display = "none";
     }
+    adjustGridLayout();
+}
+
+// Function to adjust the grid layout based on the number of visible cards 3 or 4
+function adjustGridLayout() {
+    const visibleCards = Array.from(document.querySelectorAll(".card"))
+        .filter(card => card.style.display !== "none");
+    
+    const container = document.querySelector(".card-container");
+    if (visibleCards.length === 3) {
+        container.style.gridTemplateColumns = "1fr 1fr 1fr";
+    } else {
+        container.style.gridTemplateColumns = "1fr 1fr";
+    }
 }
 
 // Function to handle selecting a choice
 function selectChoice(choiceIndex) {
     const selectedChoice = questions[currentQuestionIndex].choices[choiceIndex];
-    alert(`You selected: ${selectedChoice}`);
+    //alert(`You selected: ${selectedChoice}`);
 
     // Move to the next question
     currentQuestionIndex++;

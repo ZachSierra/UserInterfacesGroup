@@ -1,3 +1,13 @@
+<!--
+This is the questionnaire html, which is the frontend written in html and bootstrap
+and the backend is written in the javascript code. 
+
+Written by: Anna Vielma and Katherine Raguini
+-->
+
+
+<!--html header and imports bootstrap-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +22,7 @@
         <link rel="stylesheet" href="../stylesheets/my-colors.css">
     </head>
     <body>
+        <!--Added zach navigation-->   
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">FindMyPlant</a>
@@ -33,18 +44,21 @@
                 </div>
             </div>
         </nav>
+        <!--html body and the questionnaire questions-->
         <div class="quiz-container text-center">
-            <div id="question-number" class="quiz-header">Question 1</div>
+            <div id="question-number" class="quiz-header" >Question 1</div>
             <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
-
-            <div class="card-container">
-                <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
-                <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
-                <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
-                <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
-            </div>
-
-            <button class="skip-button" onclick="skipQuestion()">Skip</button>
+            <div class=justify-content-sm-center>
+                <div class="card-container">
+                    <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
+                    <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
+                    <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
+                    <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
+                </div>
+            </div>    
+            <div class="skip-container">
+                <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
+            </div>   
         </div>
 
 
