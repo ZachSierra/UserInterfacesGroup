@@ -1,3 +1,5 @@
+//This javascript changes out question number, question, and answer choices in questionnaire.html
+// Array of questions with choices
 const questions = [
     {
         question: "Do you prefer indoor or outdoor plants?",
@@ -53,7 +55,7 @@ const questions = [
     },
     {
         question: "What type of colors do you prefer in your plants?",
-        choices: ["Green", "Vibrant colors (red, pink, purple, blue)", "Subtle tones (white, pale yellow)"]
+        choices: ["Green", "Vibrant colors (red, pink, blue)", "Subtle tones (white, pale yellow)"]
     },
     {
         question: "What kind of atmosphere are you trying to create with your plants?",
@@ -64,6 +66,9 @@ const questions = [
 
 let currentQuestionIndex = 0;
 
+// Array to store user answers
+let userChoices = [];
+
 // Function to load a question based on the current index
 function loadQuestion() {
     // Check if there are more questions
@@ -71,6 +76,15 @@ function loadQuestion() {
         document.getElementById("question-text").textContent = "Thank you for completing the quiz!";
         document.querySelector(".card-container").style.display = "none";
         document.querySelector(".skip-button").style.display = "none";
+            // document.getElementById("review-section").style.display = "block";
+        document.getElementById("end-options").style.display = "block"; // Show end options
+
+        // Populate the review section with the user's choices
+        const answersList = document.getElementById("answers-list");
+        answersList.innerHTML = '';
+        userChoices.forEach(answer => {
+            answersList.innerHTML += `<p><strong>${answer.question}</strong><br>Answer: ${answer.answer}</p>`;
+        });
         return;
     }
 
@@ -88,15 +102,32 @@ function loadQuestion() {
     for (let i = questionData.choices.length; i < 3; i++) {
         document.getElementById(`choice-${i}`).style.display = "none";
     }
+    adjustGridLayout();
+}
+
+// Function to adjust the grid layout based on the number of visible cards 3 or 4
+function adjustGridLayout() {
+    const visibleCards = Array.from(document.querySelectorAll(".card"))
+        .filter(card => card.style.display !== "none");
+    
+    const container = document.querySelector(".card-container");
+    if (visibleCards.length === 3) {
+        container.style.gridTemplateColumns = "1fr 1fr 1fr";
+    } else {
+        container.style.gridTemplateColumns = "1fr 1fr";
+    }
 }
 
 // Function to handle selecting a choice
 function selectChoice(choiceIndex) {
     const selectedChoice = questions[currentQuestionIndex].choices[choiceIndex];
-    alert(`You selected: ${selectedChoice}`);
+    //alert(`You selected: ${selectedChoice}`);
 
+    // Store the user's choice in the array
+    userChoices.push({ question: questions[currentQuestionIndex].question, answer: selectedChoice });
     // Move to the next question
     currentQuestionIndex++;
+
     loadQuestion();
 }
 
@@ -104,6 +135,43 @@ function selectChoice(choiceIndex) {
 function skipQuestion() {
     currentQuestionIndex++;
     loadQuestion();
+}
+
+// Function to restart the quiz
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    userChoices = [];
+    document.querySelector(".card-container").style.display = "block";
+    document.querySelector(".skip-button").style.display = "inline-block";
+    document.getElementById("end-options").style.display = "none";
+    loadQuestion();
+}
+
+// Function to submit the quiz
+function submitQuiz() {
+    alert('Quiz submitted!');
+    // You can add additional actions here, such as sending the data to a backend server.
+    // Reset the UI after submission (optional)
+    startOver();
+}
+
+function showResponses() {
+    const responseList = document.getElementById("responses-list");
+    responseList.innerHTML = ""; // Clear previous responses
+
+    userChoices.forEach((choice, index) => {
+        const responseItem = document.createElement("p");
+        responseItem.textContent = `Q${index + 1}: ${choice.question} - Your answer: ${choice.answer}`;
+        responseList.appendChild(responseItem);
+    });
+
+    // Make sure the modal is displayed
+    document.getElementById("responseModal").style.display = "flex";
+}
+
+// Function to close the modal
+function closeModal() {
+    document.getElementById("responseModal").style.display = "none";
 }
 
 // Load the first question initially
