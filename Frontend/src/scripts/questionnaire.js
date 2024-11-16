@@ -150,7 +150,7 @@ function restartQuiz() {
 
 // Function to submit the quiz
 function submitQuiz() {
-    window.location.href = "greenhouse.html";
+    window.location.href = "matches.html";
     // You can add additional actions here, such as sending the data to a backend server.
     // Reset the UI after submission (optional)
     startOver();
