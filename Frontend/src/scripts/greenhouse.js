@@ -1,15 +1,14 @@
-function clickCard(originalCard) {
-    // Get the sibling of the original card (the new card)
-    const newCard = originalCard.nextElementSibling;
-
-    // Toggle visibility between the original and new cards
-    if (newCard.classList.contains('d-none')) {
-        // Show the new card and hide the original
-        originalCard.classList.add('d-none');
-        newCard.classList.remove('d-none');
-    } else {
-        // Show the original card and hide the new card
-        originalCard.classList.remove('d-none');
-        newCard.classList.add('d-none');
+function clickCard(card) {
+    // Check if the clicked card is an "original" card
+    if (card.classList.contains('original-card')) {
+        const newCard = card.nextElementSibling; // Find the sibling new card
+        card.classList.add('d-none'); // Hide the original card
+        newCard.classList.remove('d-none'); // Show the new card
+    }
+    // Check if the clicked card is a "new" card
+    else if (card.classList.contains('new-card')) {
+        const originalCard = card.previousElementSibling; // Find the sibling original card
+        card.classList.add('d-none'); // Hide the new card
+        originalCard.classList.remove('d-none'); // Show the original card
     }
 }

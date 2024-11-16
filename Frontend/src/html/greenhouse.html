@@ -118,7 +118,7 @@ Written by: Anna Vielma and Katherine Raguini
         <!-- END New Card (initially hidden) -->
     <!-- Original Card-->
     <div class="col">
-        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(event)" style="height: 480px;">
+        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
             <img src="../assets/images/bonsai.jpg" class="card-img-top" alt="Plant Image">
             <div class="card-body">
                 <h5 class="card-title">Bonsai</h5>
@@ -127,47 +127,47 @@ Written by: Anna Vielma and Katherine Raguini
     <!-- END Original Card-->
 
     <!-- New Card (initially hidden) -->
-        <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(event)" style="height: 480px;">
+        <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(this)" style="height: 480px;">
             <h5 class="card-title">Bonsai</h5>
                 <table class="table table-borderless text-start">
                     <tbody>
                     <tr>
                         <td>Max Size:</td>
-                        <td>5ft</td>
+                        <td>1-2ft</td>
                     </tr>
                     <tr>
                         <td>Difficulty:</td>
-                        <td>Medium</td>
+                        <td>Advanced</td>
                     </tr>
                     <tr>
                         <td>Light:</td>
-                        <td>Medium</td>
+                        <td>Low</td>
                     </tr>
                     <tr>
                         <td>Water:</td>
-                        <td>Mist Every Day</td>
+                        <td>Soak in Water once a week</td>
                     </tr>    
                     <tr>
                         <td>Atmosphere:</td>
-                        <td>Recommended Indoors</td>
+                        <td>Indoors/Outdoors</td>
                     </tr>  
                     <tr>
-                        <td>Water:</td>
+                        <td>Hydration:</td>
                         <td>Mist Every Day</td>
                     </tr>  
                     <tr>
                         <td>Pet Friendly:</td>
-                        <td>Your cat will destroy everything</td>
+                        <td>Yes</td>
                     </tr>                      
                     </tbody>
                 </table>
-                <h6>This is a great plant for indoors and for decorating open spaces.</h6>
+                <h6>Recommended for the more skilled plant keepers.</h6>
         </div>
     </div>
     <!-- END New Card (initially hidden) -->
     <!-- Original Card-->
     <div class="col">
-        <div class="card border-primary mb-3 w-100" id="originalCard" onclick="clickCard()" style="height: 480px;">
+        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
             <img src="../assets/images/aloe-vera-plant-in-square-vase_3.jpg" class="card-img-top" alt="Plant Image">
             <div class="card-body">
                 <h5 class="card-title">Aloe Vera</h5>
@@ -176,29 +176,29 @@ Written by: Anna Vielma and Katherine Raguini
     <!-- END Original Card-->
 
     <!-- New Card (initially hidden) -->
-        <div class="card border-primary mb-3 w-100 d-none" id="newCard" onclick="clickCard()" style="height: 480px;">
+        <div class="card border-primary mb-3 w-100 d-none new-card" onclick="clickCard(this)" style="height: 480px;">
             <h5 class="card-title">Aloe Vera (Aloe barbadensis Miller)</h5>
                 <table class="table table-borderless text-start">
                     <tbody>
                     <tr>
                         <td>Max Size:</td>
-                        <td>5ft</td>
+                        <td>3ft</td>
                     </tr>
                     <tr>
                         <td>Difficulty:</td>
-                        <td>Medium</td>
+                        <td>easy</td>
                     </tr>
                     <tr>
                         <td>Light:</td>
-                        <td>Medium</td>
+                        <td>High</td>
                     </tr>
                     <tr>
                         <td>Water:</td>
-                        <td>Mist Every Day</td>
+                        <td>Once every 2 weeks</td>
                     </tr>    
                     <tr>
                         <td>Atmosphere:</td>
-                        <td>Recommended Indoors</td>
+                        <td>Outdoors</td>
                     </tr>  
                     <tr>
                         <td>Water:</td>
