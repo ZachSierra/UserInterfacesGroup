@@ -141,15 +141,16 @@ function skipQuestion() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     userChoices = [];
-    document.querySelector(".card-container").style.display = "block";
-    document.querySelector(".skip-button").style.display = "inline-block";
-    document.getElementById("end-options").style.display = "none";
-    loadQuestion();
+    window.location.reload();
+    // document.querySelector(".card-container").style.display = "block";
+    // document.querySelector(".skip-button").style.display = "inline-block";
+    // document.getElementById("end-options").style.display = "none";
+    // loadQuestion();
 }
 
 // Function to submit the quiz
 function submitQuiz() {
-    alert('Quiz submitted!');
+    window.location.href = "greenhouse.html";
     // You can add additional actions here, such as sending the data to a backend server.
     // Reset the UI after submission (optional)
     startOver();
