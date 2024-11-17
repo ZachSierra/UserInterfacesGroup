@@ -1,0 +1,115 @@
+<!--
+This is the matchmaking page that shows the plants that you 
+end up with after taking the quiz.
+
+Written by: Rodrigo Nunez
+-->
+
+
+<!--html header and imports bootstrap-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find My Plant!</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
+        <link rel="stylesheet" href="../stylesheets/my-colors.css">
+    </head>
+    <body>
+        <section id="navigation-bar">
+            <!--Added zach navigation-->   
+            <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">FindMyPlant.com</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./greenhouse.html">My Green House</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="questionnaire.html">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+<!-- Green house -->
+<!-- <section id="greenhouse" class="container my-3">
+    <div class="row g-4">
+        <div class="col" style="flex: 0 0 250px;">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h2>Plant Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Greenhouse -->
+    <!-- Page Title -->
+    <h1 class="greenhouse-title">Your Greenhouse</h1>
+
+    <!-- Cards Container -->
+    <div class="container">
+        <div class="row" id="plant-cards-container">
+            <!-- Cards will be dynamically injected here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Mock Data: Questionnaire Results
+        const userPlants = [
+            { name: "Fiddle Leaf Fig", img: "https://via.placeholder.com/150" },
+            { name: "Snake Plant", img: "https://via.placeholder.com/150" },
+            { name: "Spider Plant", img: "https://via.placeholder.com/150" },
+            { name: "Pothos", img: "https://via.placeholder.com/150" },
+            { name: "Peace Lily", img: "https://via.placeholder.com/150" },
+            { name: "Aloe Vera", img: "https://via.placeholder.com/150" }
+        ];
+
+        // Function to Dynamically Populate Cards
+        function populateGreenhouse(plants) {
+            const container = document.getElementById("plant-cards-container");
+
+            plants.forEach((plant) => {
+                // Create the Bootstrap Card
+                const card = document.createElement("div");
+                card.className = "col-md-2"; // Bootstrap column, fits 5 cards per row
+                card.innerHTML = `
+                    <div class="card">
+                        <img src="${plant.img}" class="card-img-top" alt="${plant.name}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${plant.name}</h5>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Call the Function to Populate Greenhouse
+        populateGreenhouse(userPlants);
+    </script>
+</body>
+</html>

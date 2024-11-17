@@ -1,0 +1,93 @@
+<!--
+This is the questionnaire html, which is the frontend written in html and bootstrap
+and the backend is written in the javascript code. 
+
+Written by: Anna Vielma and Katherine Raguini
+-->
+
+
+<!--html header and imports bootstrap-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find My Plant!</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
+        <link rel="stylesheet" href="../stylesheets/my-colors.css">
+    </head>
+    <body>
+        <section id="navigation-bar">
+            <!--Added zach navigation-->   
+            <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">FindMyPlant.com</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./greenhouse.html">My Green House</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="questionnaire.html">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <!--html body and the questionnaire questions-->
+        <div class="quiz-container text-center">
+            <div id="question-number" class="quiz-header" >Question 1</div>
+            <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
+            <div class=justify-content-sm-center>
+                <div class="card-container">
+                    <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
+                    <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
+                    <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
+                    <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
+                </div>
+            </div>    
+            <div class="skip-container">
+                <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
+            </div> 
+             <!-- End-of-quiz options -->
+    <div id="end-options" style="display: none;" class="completion-popup">
+        <h2>All Done! Ready when you are...</h2>
+        <div class="completion-buttons">
+            <button onclick="restartQuiz()" class="btn btn-primary">Let’s start over </button>
+            <button class="btn btn-primary" onclick="submitQuiz()">I loved my answers Let's Go!</button>
+        </div>
+        <button onclick="showResponses()" class="btn btn-secondary review-button">Review My Answers</button>
+    </div>
+
+    <!-- Modal for displaying responses -->
+    <div id="responseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Your Answers</h2>
+            <div id="responses-list"></div>
+            <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+        </div>
+    </div>  
+        </div>
+
+        
+
+        <script src="../scripts/questionnaire.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

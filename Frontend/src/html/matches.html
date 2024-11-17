@@ -1,0 +1,233 @@
+<!--
+This is the matchmaking page that shows the plants that you 
+end up with after taking the quiz.
+
+Written by: Rodrigo Nunez
+-->
+
+
+<!--html header and imports bootstrap-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find My Plant!</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
+        <link rel="stylesheet" href="../stylesheets/my-colors.css">
+    </head>
+    <body>
+        <section id="navigation-bar">
+            <!--Added zach navigation-->   
+            <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">FindMyPlant.com</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./greenhouse.html">My Green House</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="questionnaire.html">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+<!-- Green house -->
+<!-- <section id="greenhouse" class="container my-3">
+    <div class="row g-4">
+        <div class="col" style="flex: 0 0 250px;">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h2>Plant Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Greenhouse -->
+<section id="greenhouse" class="container my-5">
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- Original Card-->
+        <div class="col">
+            <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
+                <img src="../assets/images/Monstera-Deliciosa-Window-Leaf-Square-Image-420x420.jpg" class="card-img-top" alt="Plant Image">
+                <div class="card-body">
+                    <h5 class="card-title">Mostera</h5>
+                </div>
+            </div>
+        <!-- END Original Card-->
+
+        <!-- New Card (initially hidden) -->
+            <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(this)" style="height: 480px;">
+                <h5 class="card-title">Mostera (Araceae)</h5>
+                    <table class="table table-borderless text-start">
+                        <tbody>
+                        <tr>
+                            <td>Max Size:</td>
+                            <td>5ft</td>
+                        </tr>
+                        <tr>
+                            <td>Difficulty:</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Light:</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Water:</td>
+                            <td>Mist Every Day</td>
+                        </tr>    
+                        <tr>
+                            <td>Atmosphere:</td>
+                            <td>Recommended Indoors</td>
+                        </tr>  
+                        <tr>
+                            <td>Water:</td>
+                            <td>Mist Every Day</td>
+                        </tr>  
+                        <tr>
+                            <td>Pet Friendly:</td>
+                            <td>Your cat will destroy everything</td>
+                        </tr>                      
+                        </tbody>
+                    </table>
+                    <h6>This is a great plant for indoors and for decorating open spaces.</h6>
+            </div>
+        </div>
+        <!-- END New Card (initially hidden) -->
+    <!-- Original Card-->
+    <div class="col">
+        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
+            <img src="../assets/images/bonsai.jpg" class="card-img-top" alt="Plant Image">
+            <div class="card-body">
+                <h5 class="card-title">Bonsai</h5>
+            </div>
+        </div>
+    <!-- END Original Card-->
+
+    <!-- New Card (initially hidden) -->
+        <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(this)" style="height: 480px;">
+            <h5 class="card-title">Bonsai</h5>
+                <table class="table table-borderless text-start">
+                    <tbody>
+                    <tr>
+                        <td>Max Size:</td>
+                        <td>1-2ft</td>
+                    </tr>
+                    <tr>
+                        <td>Difficulty:</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Light:</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Water:</td>
+                        <td>Soak in Water once a week</td>
+                    </tr>    
+                    <tr>
+                        <td>Atmosphere:</td>
+                        <td>Indoors/Outdoors</td>
+                    </tr>  
+                    <tr>
+                        <td>Hydration:</td>
+                        <td>Mist Every Day</td>
+                    </tr>  
+                    <tr>
+                        <td>Pet Friendly:</td>
+                        <td>Yes</td>
+                    </tr>                      
+                    </tbody>
+                </table>
+                <h6>Recommended for the more skilled plant keepers.</h6>
+        </div>
+    </div>
+    <!-- END New Card (initially hidden) -->
+    <!-- Original Card-->
+    <div class="col">
+        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
+            <img src="../assets/images/aloe-vera-plant-in-square-vase_3.jpg" class="card-img-top" alt="Plant Image">
+            <div class="card-body">
+                <h5 class="card-title">Aloe Vera</h5>
+            </div>
+        </div>
+    <!-- END Original Card-->
+
+    <!-- New Card (initially hidden) -->
+        <div class="card border-primary mb-3 w-100 d-none new-card" onclick="clickCard(this)" style="height: 480px;">
+            <h5 class="card-title">Aloe Vera (Aloe barbadensis Miller)</h5>
+                <table class="table table-borderless text-start">
+                    <tbody>
+                    <tr>
+                        <td>Max Size:</td>
+                        <td>3ft</td>
+                    </tr>
+                    <tr>
+                        <td>Difficulty:</td>
+                        <td>easy</td>
+                    </tr>
+                    <tr>
+                        <td>Light:</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Water:</td>
+                        <td>Once every 2 weeks</td>
+                    </tr>    
+                    <tr>
+                        <td>Atmosphere:</td>
+                        <td>Outdoors</td>
+                    </tr>  
+                    <tr>
+                        <td>Water:</td>
+                        <td>Mist Every Day</td>
+                    </tr>  
+                    <tr>
+                        <td>Pet Friendly:</td>
+                        <td>Your cat will destroy everything</td>
+                    </tr>                      
+                    </tbody>
+                </table>
+                <h6>This is a great plant for indoors and for decorating open spaces.</h6>
+        </div>
+    </div>
+    <!-- END New Card (initially hidden) -->
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="window.location.href='index.html';">Return Home</button>
+    </div>
+
+</section>
+<!-- end greenhouse-->
+
+        <script src="../scripts/questionnaire.js"></script>
+        <script src="../scripts/matches.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
