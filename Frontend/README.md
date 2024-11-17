@@ -2,6 +2,7 @@
 Group Project for User Interfaces
 
 
+
 ## Github Repository Rules
 ### Cloning this repository
 - Please follow [this documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) on cloning this repo 

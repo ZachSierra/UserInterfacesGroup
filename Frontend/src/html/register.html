@@ -37,21 +37,18 @@
         <div class="custom-container">
             <div class="wrapper">
                 <h1 class="title">Register</h1>
-                <form class="inputContainer">
-                    <label  hidden for="userName"></label>
-                    <input  class="input" id="userName" name="userName" placeholder="Username" type="text">
-                    <label hidden for="email"></label>
-                    <input class="input" id="email" name="email" placeholder="Email" type="text">
-                    <label hidden for="passWord"></label>
-                    <input class="input" id="passWord" name="passWord" placeholder="Password" type="text">
-                    <label hidden for="retypePassword"></label>
-                    <input class="input" id="retypePassword" name="retypePassword" placeholder="Retype Password" type="text">
-                    <button class="btn btn-primary" >Submit</button>
+                <form id="registerForm" class="inputContainer">
+                    <input class="input" id="registerUsername" name="registerUsername" placeholder="Username" type="text">
+                    <input class="input" id="registerEmail" name="registerEmail" placeholder="Email" type="email">
+                    <input class="input" id="registerPassword" name="registerPassword" placeholder="Password" type="password">
+                    <input class="input" id="retypePassword" name="retypePassword" placeholder="Retype Password" type="password">
+                    <button class="btn btn-primary" type="submit">Register</button>
+                    <p id="register-error-message" style="color: red; display: none;"></p>
                 </form>
-                <p>or</p>
-                <a href="./login.html" class="btn btn-primary">Login</a>
+                <p>Already have an account? <a href="./login.html">Login here</a></p>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="../scripts/register.js"></script>
     </body>
 </html>

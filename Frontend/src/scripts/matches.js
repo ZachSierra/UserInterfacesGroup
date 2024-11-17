@@ -60,3 +60,25 @@ function renderGreenhouse() {
         greenhouseList.appendChild(plantCard);
     });
 }
+
+//This pulls from the backend to get a random plant suggestion
+function suggestRandomPlant() {
+    fetch('http://localhost:3000/api/randomPlant')
+        .then((response) => response.json())
+        .then((plant) => {
+            const plantSuggestionContainer = document.getElementById('plant-suggestion');
+            plantSuggestionContainer.innerHTML = `
+                <div class="card">
+                    <img src="path_to_image_placeholder.jpg" class="card-img-top" alt="${plant.Common_Name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${plant.Common_Name}</h5>
+                        <p class="card-text">${plant.Description}</p>
+                        <button class="btn btn-primary" onclick="addToGreenhouse(this)">Add to Greenhouse</button>
+                    </div>
+                </div>
+            `;
+        })
+        .catch((error) => {
+            console.error('Error fetching random plant:', error);
+        });
+}
