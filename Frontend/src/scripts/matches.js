@@ -1,3 +1,31 @@
+
+//Captures that the user wants to add this plant to their greenhouse
+function addToGreenhouse(button) {
+    // Locate the parent card to extract plant information
+    const card = button.closest('.card');
+    const plantName = card.querySelector('.card-title').textContent.trim();
+    const plantImage = card.querySelector('img').src;
+
+    // Retrieve existing greenhouse data from localStorage
+    let greenhousePlants = JSON.parse(localStorage.getItem('greenhousePlants')) || [];
+
+    // Add the new plant to the greenhouse array
+    greenhousePlants.push({ name: plantName, img: plantImage });
+
+    // Save updated greenhouse array back to localStorage
+    localStorage.setItem('greenhousePlants', JSON.stringify(greenhousePlants));
+
+    // Feedback to the user
+    alert(`${plantName} has been added to your Greenhouse!`);
+
+    // Optionally, disable the button to prevent duplicate additions
+    button.textContent = "Added!";
+    button.disabled = true;
+}
+
+
+
+//Shows the plant information
 function clickCard(card) {
     // Check if the clicked card is an "original" card
     if (card.classList.contains('original-card')) {
@@ -11,4 +39,24 @@ function clickCard(card) {
         card.classList.add('d-none'); // Hide the new card
         originalCard.classList.remove('d-none'); // Show the original card
     }
+}
+
+
+function renderGreenhouse() {
+    const greenhouseList = document.getElementById('greenhouse-list');
+    greenhouseList.innerHTML = ''; // Clear previous content
+
+    greenhousePlants.forEach((plant) => {
+        const plantCard = document.createElement('div');
+        plantCard.className = 'col';
+        plantCard.innerHTML = `
+            <div class="card border-primary mb-3 w-100" style="height: 480px;">
+                <img src="${plant.img}" class="card-img-top" alt="${plant.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${plant.name}</h5>
+                </div>
+            </div>
+        `;
+        greenhouseList.appendChild(plantCard);
+    });
 }
