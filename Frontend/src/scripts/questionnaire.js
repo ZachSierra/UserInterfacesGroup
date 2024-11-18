@@ -76,7 +76,6 @@ function loadQuestion() {
         document.getElementById("question-text").textContent = "Thank you for completing the quiz!";
         document.querySelector(".card-container").style.display = "none";
         document.querySelector(".skip-button").style.display = "none";
-            // document.getElementById("review-section").style.display = "block";
         document.getElementById("end-options").style.display = "block"; // Show end options
 
         // Populate the review section with the user's choices
@@ -92,31 +91,51 @@ function loadQuestion() {
     document.getElementById("question-number").textContent = `Question ${currentQuestionIndex + 1}`;
     document.getElementById("question-text").textContent = questionData.question;
 
-    // Update choices
-    questionData.choices.forEach((choice, index) => {
-        document.getElementById(`choice-${index}`).textContent = choice;
-        document.getElementById(`choice-${index}`).style.display = "block";
-    });
-
-    // Hide extra choices if less than 3
-    for (let i = questionData.choices.length; i < 3; i++) {
-        document.getElementById(`choice-${i}`).style.display = "none";
+    // Clear and reset all choice elements
+    const maxChoices = 5; // Adjust based on the maximum possible choices in any question
+    for (let i = 0; i < maxChoices; i++) {
+        const choiceElement = document.getElementById(`choice-${i}`);
+        if (i < questionData.choices.length) {
+            choiceElement.textContent = questionData.choices[i];
+            choiceElement.style.display = "block";
+        } else {
+            choiceElement.style.display = "none";
+        }
     }
+
     adjustGridLayout();
 }
+
 
 // Function to adjust the grid layout based on the number of visible cards 3 or 4
 function adjustGridLayout() {
     const visibleCards = Array.from(document.querySelectorAll(".card"))
-        .filter(card => card.style.display !== "none");
-    
+        .filter(card => card.style.display !== "none"); // Count only visible cards
+
+    const visibleCount = visibleCards.length; // Get the number of visible cards
     const container = document.querySelector(".card-container");
-    if (visibleCards.length === 3) {
+
+    // Adjust grid layout based on visible card count
+    if (visibleCount === 3) {
         container.style.gridTemplateColumns = "1fr 1fr 1fr";
-    } else {
+        container.style.gridTemplateRows = "none"; // Reset rows for clarity
+    } else if (visibleCount === 4) {
         container.style.gridTemplateColumns = "1fr 1fr";
+        container.style.gridTemplateRows = "1fr 1fr";
+    } else if (visibleCount === 5) {
+        container.style.gridTemplateColumns = "1fr 1fr";
+        container.style.gridTemplateRows = "auto auto auto"; // Wrap rows dynamically
+    } else if (visibleCount === 2) {
+        container.style.gridTemplateColumns = "1fr 1fr";
+        container.style.gridTemplateRows = "none"; // Reset rows
+    } else {
+        // Default for any other number (e.g., 1 or 0)
+        container.style.gridTemplateColumns = "1fr";
+        container.style.gridTemplateRows = "none";
     }
 }
+
+
 
 // Function to handle selecting a choice
 function selectChoice(choiceIndex) {
