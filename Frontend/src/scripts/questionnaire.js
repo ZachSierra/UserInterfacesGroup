@@ -3,63 +3,63 @@
 const questions = [
     {
         question: "Do you prefer indoor or outdoor plants?",
-        choices: ["Indoor", "Outdoor", "Both"]
+        choices: ["A. Indoor", "B. Outdoor", "C. Both"]
     },
     {
         question: "What is the typical temperature of where you will keep your plant?",
-        choices: ["Below 40°F (4°C)", "40°F to 65°F (4°C to 18°C)", "65°F to 85°F (18°C to 29°C)", "Above 85°F (29°C)"]
+        choices: ["A. Below 40°F (4°C)", "B. 40°F to 65°F (4°C to 18°C)", "C. 65°F to 85°F (18°C to 29°C)", "D. Above 85°F (29°C)"]
     },
     {
         question: "What is the humidity level of where the plant will be?",
-        choices: ["Low", "Average", "High"]
+        choices: ["A. Low", "B. Average", "C. High"]
     },
     {
         question: "What kind of natural light does the area receive?",
-        choices: ["Low", "Medium", "Bright", "Partial shade", "Full sun"]
+        choices: ["A. Low", "B. Medium", "C. Bright", "D. Partial shade", "E. Full sun"]
     },
     {
         question: "Is it important that your plant is pet-friendly?",
-        choices: ["Yes", "No"]
+        choices: ["A. Yes", "B. No"]
     },
     {
         question: "What size of plant are you looking for?",
-        choices: ["Small (< 3ft)", "Medium (3 - 10 ft)", "Large (10ft <)"]
+        choices: ["A. Small (< 3ft)", "B. Medium (3 - 10 ft)", "C. Large (10ft <)"]
     },
     {
         question: "What is your experience level with plants?",
-        choices: ["Beginner (Easy Plants)", "Moderate (Moderate Plants)", "Expert (Difficult Plants)"]
+        choices: ["A. Beginner (Easy Plants)", "B. Moderate (Moderate Plants)", "C. Expert (Difficult Plants)"]
     },
     {
         question: "How often are you away from home?",
-        choices: ["Rarely", "Occasionally", "Frequently"]
+        choices: ["A. Rarely", "B. Occasionally", "C. Frequently"]
     },
     {
         question: "How often do you want to water your plant?",
-        choices: ["Low (infrequently)", "Moderate", "High (frequently)"]
+        choices: ["A. Low (infrequently)", "B. Moderate", "C. High (frequently)"]
     },
     {
         question: "Do you prefer a plant that is resistant to pests?",
-        choices: ["Yes", "No"]
+        choices: ["A. Yes", "B. No"]
     },
     {
         question: "What type of growth habit do you prefer in a plant?",
-        choices: ["Upright", "Trailing/Vining", "Bushy", "Compact"]
+        choices: ["A. Upright", "B. Trailing/Vining", "C. Bushy", "D. Compact"]
     },
     {
         question: "Are you looking for a flowering or non-flowering plant?",
-        choices: ["Flowering", "Non-flowering", "No preference"]
+        choices: ["A. Flowering", "B. Non-flowering", "C. No preference"]
     },
     {
         question: "What type of aesthetic are you drawn to in plants?",
-        choices: ["Minimalistic and modern", "Lush and tropical", "Quirky and unique", "Rustic and natural"]
+        choices: ["A. Minimalistic and modern", "B. Lush and tropical", "C. Quirky and unique", "D. Rustic and natural"]
     },
     {
         question: "What type of colors do you prefer in your plants?",
-        choices: ["Green", "Vibrant colors (red, pink, blue)", "Subtle tones (white, pale yellow)"]
+        choices: ["A. Green", "B. Vibrant colors (red, pink, purple, blue)", "C.Subtle tones (white, pale yellow)"]
     },
     {
         question: "What kind of atmosphere are you trying to create with your plants?",
-        choices: ["Calm/serene", "Energizing/vibrant", "Cozy/inviting"]
+        choices: ["A. Calm/serene", "B. Energizing/vibrant", "C. Cozy/inviting"]
     }
 ];
 
@@ -67,7 +67,8 @@ const questions = [
 let currentQuestionIndex = 0;
 
 // Array to store user answers
-let userChoices = [];
+let answers = [];
+export let userChoices = [];
 
 // Function to load a question based on the current index
 function loadQuestion() {
@@ -79,8 +80,9 @@ function loadQuestion() {
         document.getElementById("end-options").style.display = "block"; // Show end options
 
         // Populate the review section with the user's choices
-        const answersList = document.getElementById("answers-list");
-        answersList.innerHTML = '';
+            const answersList = document.getElementById("answers-list");
+            answersList.innerHTML = '';
+        
         userChoices.forEach(answer => {
             answersList.innerHTML += `<p><strong>${answer.question}</strong><br>Answer: ${answer.answer}</p>`;
         });
@@ -88,8 +90,11 @@ function loadQuestion() {
     }
 
     const questionData = questions[currentQuestionIndex];
-    document.getElementById("question-number").textContent = `Question ${currentQuestionIndex + 1}`;
-    document.getElementById("question-text").textContent = questionData.question;
+        document.getElementById("question-number").textContent = `Question ${currentQuestionIndex + 1}`;
+        document.getElementById("question-text").textContent = questionData.question;
+    
+    
+
 
     // Clear and reset all choice elements
     const maxChoices = 5; // Adjust based on the maximum possible choices in any question
@@ -135,29 +140,33 @@ function adjustGridLayout() {
     }
 }
 
-
-
 // Function to handle selecting a choice
-function selectChoice(choiceIndex) {
+//function selectChoice(choiceIndex){}
+
+window.selectChoice = function(choiceIndex){
     const selectedChoice = questions[currentQuestionIndex].choices[choiceIndex];
     //alert(`You selected: ${selectedChoice}`);
-
-    // Store the user's choice in the array
     userChoices.push({ question: questions[currentQuestionIndex].question, answer: selectedChoice });
+    // Store the user's choice in the array
+    let letter = selectedChoice.split(".")[0];
+    answers.push(letter);
+    //alert(`Choice: ${letter}`);
+
     // Move to the next question
     currentQuestionIndex++;
 
     loadQuestion();
 }
 
+
 // Function to skip the current question
-function skipQuestion() {
+window.skipQuestion = function() {
     currentQuestionIndex++;
     loadQuestion();
 }
 
 // Function to restart the quiz
-function restartQuiz() {
+window.restartQuiz = function() {
     currentQuestionIndex = 0;
     userChoices = [];
     window.location.reload();
@@ -168,14 +177,19 @@ function restartQuiz() {
 }
 
 // Function to submit the quiz
-function submitQuiz() {
-    window.location.href = "matches.html";
+window.submitQuiz = function() {
+
     // You can add additional actions here, such as sending the data to a backend server.
+    console.log("Quiz complete. Exporting answers...");
+    // Opens matches
+    window.location.href = "matches.html";
+
+    
     // Reset the UI after submission (optional)
     startOver();
 }
 
-function showResponses() {
+window.showResponses = function(){
     const responseList = document.getElementById("responses-list");
     responseList.innerHTML = ""; // Clear previous responses
 
@@ -189,11 +203,19 @@ function showResponses() {
     document.getElementById("responseModal").style.display = "flex";
 }
 
+//function showResponses() {}
+
 // Function to close the modal
-function closeModal() {
+//function closeModal() {}
+
+window.closeModal = function(){
     document.getElementById("responseModal").style.display = "none";
 }
 
 // Load the first question initially
-loadQuestion();
-
+console.log(window.location.pathname);
+if (window.location.pathname === '/questionnaire.html'){
+    loadQuestion();
+}
+//userChoices = "CCBBBBBBBBBCAAA";
+localStorage.answers = userChoices;

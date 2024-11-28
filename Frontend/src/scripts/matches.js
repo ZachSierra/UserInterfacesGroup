@@ -1,3 +1,16 @@
+/**
+ * Connected to matches.html
+ * Imports plant inventory from PlantProfiles.csv
+ * Creates matches from passed user choices from quiz
+ * Creates divs for UI
+ * 
+ * by (?) and Sam Lagman
+ */
+
+import { Matcher } from "../scripts/Matcher.js"
+import { Quiz } from "../scripts/Quiz.js"
+import { Plant } from "../scripts/Plant.js"
+import { userChoices } from '../scripts/questionnaire.js';
 
 //Captures that the user wants to add this plant to their greenhouse
 function addToGreenhouse(button) {
@@ -82,3 +95,226 @@ function suggestRandomPlant() {
             console.error('Error fetching random plant:', error);
         });
 }
+
+function getImageSrc(name){
+    let src = "";
+    let str = "";
+    if(name.includes("/")){
+        let plantName = name.split("/");
+        src = plantName[0];
+    }
+    name.trim();
+    src = name.split(" ").join("");
+    console.log(src);
+
+    if(src === "AloeVera" || src === "FiddleLeafFig"){
+        return str = "../assets/img/" + src +".jpeg";
+    } else if(src === "Areca/ButterflyPalm"){
+        return str = "../assets/img/ButterflyPalm.jpg";
+    }
+
+    return str = "../assets/img/" + src +".jpg";
+}
+
+function displayMatches(matches){
+    let greenhouseContainer = document.getElementById("greenhouseCards");
+
+    for(let i = 0; i < matches.length; i++){
+
+        //Original Card
+        //Outermost Column
+        let originalCard = document.createElement("div");
+        originalCard.className = "col";
+
+        //Card div
+        let cardDiv = document.createElement("div");
+        cardDiv.className = "card border-primary mb-3 w-100 original-card";
+        cardDiv.style.height = "480px";
+        cardDiv.setAttribute("onclick", "clickCard(this)");
+
+        //Image element
+        let imgElement = document.createElement("img");
+        imgElement.src = getImageSrc(matches[i].commonName);
+        console.log(getImageSrc(matches[i].commonName));
+        imgElement.className = "card-img-top";
+        imgElement.alt = "Plant Image";
+
+        //Card Body div 
+        let cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+        //Card title 
+        let cardTitle = document.createElement("div");
+        cardTitle.className = "card-title";
+        cardTitle.textContent = matches[i].commonName;
+
+        //Button
+        let button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn btn-primary";
+        button.textContent = "Add to Greenhouse";
+        button.setAttribute("onclick", "addToGreenhouse(this)");
+
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(button);
+        cardDiv.appendChild(imgElement);
+        cardDiv.appendChild(cardBody);
+        originalCard.appendChild(cardDiv);
+
+        greenhouseContainer.appendChild(originalCard);
+
+
+        //Hidden Card
+       let newCard = document.createElement("div"); 
+        newCard.className = "card border-primary mb-3 w-100 new-card d-none";
+        newCard.style.height = "480px";
+        newCard.setAttribute("onclick", "clickCard(this)");
+        
+
+        //Create the inner HTML content of the card
+        newCard.innerHTML = `
+        <h5 class="card-title">${matches[i].commonName}</h5>
+        <table class="table table-borderless text-start">
+            <tbody>
+                <tr>
+                    <td>Max Size:</td>
+                    <td>${matches[i].maxSize}</td>
+                </tr>
+                <tr>
+                    <td>Difficulty:</td>
+                    <td>${matches[i].difficulty}</td>
+                </tr>
+                <tr>
+                    <td>Light:</td>
+                    <td>${matches[i].light}</td>
+                </tr>
+                <tr>
+                    <td>Water:</td>
+                    <td>${matches[i].water}</td>
+                </tr>
+                <tr>
+                    <td>Atmosphere:</td>
+                    <td>${matches[i].atmosphere}</td>
+                </tr>
+                <tr>
+                    <td>Pet Friendly:</td>
+                    <td>${matches[i].petFriendly}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h6>${matches[i].description}</h6>
+    `;  
+        greenhouseContainer.appendChild(newCard);
+
+    }
+    
+
+
+}
+
+function importPlants(profiles){
+    let inventory = [];
+    
+    let plants = profiles.split("\n");
+
+    for(let i = 0; i < plants.length; i++){
+        let plant = plants[i];
+        let plantDesc = plant.split(",");
+        //console.log(plantDesc);
+ 
+        let commonName = plantDesc[0];
+        let sciName = plantDesc[1];
+        let size = plantDesc[2];
+        let sizes = size.split("-");
+            let minSize = size[0];
+            let maxSize = size[1];
+        let diff = plantDesc[3];
+        let loc = plantDesc[4];
+        let light = plantDesc[5];
+        let water = plantDesc[6];
+        let growth = plantDesc[7];
+        let flowerBool = plantDesc[8];
+        let flower = true;
+            if( flowerBool == "No" ){
+                flower = false;
+            } 
+        let aesthetic = plantDesc[9];
+        let atmosphere = plantDesc[10];
+        let colors = plantDesc[11];
+        let temp = plantDesc[12].split("-");
+            let minTemp = temp[0];
+            let maxTemp = temp[1];
+        let humid = plantDesc[13];
+        let pet = plantDesc[14];
+        let friendly = true;
+            if( pet == "No" ){
+                friendly = false;
+            }
+        let pest = plantDesc[15];
+        let resistant = true;
+            if( pest == "No" ){
+                friendly = false;
+            }
+        let desc = plantDesc[16].split("\\");
+        let descr = desc[0];
+        //console.log(descr);
+        
+        let newPlant = new Plant(commonName, sciName, desc, minSize, maxSize,
+            diff, loc, light, water, growth, atmosphere, colors, humid, aesthetic, 
+            minTemp, maxTemp, friendly, resistant, flower);
+
+        inventory.push(newPlant);
+        
+    }
+
+    return inventory;
+    
+}
+
+function findMatch(plantInv, userChoices){
+    let answers = userChoices;
+    let plantMatches = [];
+    let matcher = new Matcher(plantInv);
+    const quiz = new Quiz(answers, matcher);
+    plantMatches = quiz.createPlant(); 
+
+    displayMatches(plantMatches);
+
+    console.log("Plant Matches:", plantMatches.length);
+
+    let matchNames = "Found a match!\n";
+    for(let i = 0; i < plantMatches.length; i++){
+        matchNames += plantMatches[i].commonName + "\n";
+    }
+
+    //document.getElementById("test").innerText = matchNames;
+    //return matchNames; 
+}
+
+let plantProfiles = "";
+
+fetch('../scripts/PlantProfiles.csv')
+  .then(response => response.text())
+  .then(data => {
+    //console.log(data); // Process your CSV or file content here
+
+    plantProfiles = data;
+    let plantInv = importPlants(plantProfiles);
+
+    if(plantInv === 0){
+        console.log("String is empty.\n");
+    } else{
+        console.log("Plant Profiles Imported.\n");
+        for(let i = 0; i < plantInv.length; i++){
+            //plantInv[i].toString();
+        }
+    }
+    let userChoices = localStorage.answers;
+    console.log(userChoices);
+    findMatch(plantInv, userChoices);
+    //console.log(`Matched plants: ${matchNames}`);
+
+    //return matchNames; 
+
+  })
+  .catch(error => console.error('Error loading the file:', error));
