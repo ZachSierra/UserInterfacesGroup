@@ -7,6 +7,7 @@ const pool = mysql.createPool({
     user,
     password,
     database,
+    connectTimeout: 30000,
 });
 
 module.exports = pool.promise();
