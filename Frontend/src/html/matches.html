@@ -62,31 +62,47 @@ Written by: Rodrigo Nunez and Sam Lagman
         </div>
     </div>
 </section> -->
-        <!-- Greenhouse -->
-        <section style="padding-top: 600px;">
-            <div style="padding-top: 2900px;">
-                <div class="containerMatches my-5">
-                    <section id="greenhouse" class="container my-5">
-                        <div class="text-center">
-                            <h2 style="font-size: 3rem;">We Think You Will Like These Plants...</h2>
-                        </div>
-                        <br>
+<!-- Greenhouse -->
 
-                        <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
-                        
-                        
-                        </div>
-                        <br>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary" onclick="window.location.href='index.html';">Return Home</button>
-                            <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
-                        </div>
+<div id="greenhouse" class="greenhouseContainer">
 
-                    </section>
-                </div>
-            </div>
-        </section>
-        <!-- end greenhouse-->
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
+    </div>
+
+</div>
+<!----
+<section id="greenhouse" class="container my-5">
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
+    </div>
+
+</section>
+-->
+
+<!-- end greenhouse-->
 
         <script src="../scripts/matches.js" type="module"></script>
         <script src="../scripts/questionnaire.js" type="module"></script>

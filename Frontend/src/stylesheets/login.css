@@ -14,8 +14,8 @@
 }
 
 .wrapper {
-  width: 30%;
-  height: 80%;
+  width: 30vw;
+  height: 80vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,11 +27,6 @@
   color: white;
 }
 
-@media (max-width: 950px) {
-  .wrapper {
-    width: 50%;
-  }
-}
 .title {
   margin: 1rem 0 2rem 0;
   font-size: 30px;
