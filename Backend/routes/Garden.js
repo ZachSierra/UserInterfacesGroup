@@ -10,19 +10,22 @@ const {createGarden, getGarden, deleteGarden} = require('../controllers/Garden')
  *        summary: This api creates a garden
  *        description: Create a garden
  *        requestBody:
- *            required: true
- *            content:
- *                application/json:
- *                      schema:
- *                      type: object
- *                      properties:
- *                      UserId:
- *                          type: integer
- *                      Plant_id:
- *                          type: integer
- *                      required:
- *                          - UserId
- *                          - Plant_id
+ *        required: true
+ *        parameters:
+ *          - in: body
+ *            name: body
+ *            schema:
+ *              type: object
+ *              properties:
+ *                UserId:
+ *                  type: integer
+ *                  example: 1
+ *                Plant_id:
+ *                  type: integer
+ *                  example: 2
+ *            required:
+ *              - UserId
+ *              - Plant_id
  *        responses:
  *            201:
  *                description: Garden created
@@ -58,6 +61,22 @@ router.get('/:id', getGarden);
  *         description: Delete a garden
  *         requestBody:
  *         required: true
+ *         parameters:
+ *           - in: body
+ *             name: body
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 UserId:
+ *                   type: integer
+ *                   example: 1
+ *                 Plant_id:
+ *                   type: integer
+ *                   example: 2
+ *               required:
+ *                 - UserId
+ *                 - Plant_id
+ *
  *         content:
  *             application/json:
  *                 schema:

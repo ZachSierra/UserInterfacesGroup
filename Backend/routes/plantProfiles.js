@@ -5,6 +5,7 @@ const router = express.Router();
 const {
     getAllPlantProfiles,
     getPlantProfile,
+    getPlantProfileByName
 } = require('../controllers/plantProfiles');
 
 /**
@@ -20,7 +21,27 @@ const {
  *                  description: Error
  */
 router.get('/', getAllPlantProfiles);
-
+/**
+ * @swagger
+ * /plantProfiles/search/{commonName}:
+ *  get:
+ *      summary: This api gets a plant profile by name
+ *      description: Get a plant profile by name
+ *      parameters:
+ *        - in: path
+ *          name: commonName
+ *          required: true
+ *          description: The common name of the plant profile
+ *          schema:
+ *            type: string
+ *          example: pothos
+ *      responses:
+ *        200:
+ *          description: Plant profiles found
+ *        404:
+ *          description: Plant profile not found
+ */
+router.get('/search/:commonName', getPlantProfileByName);
 /**
  * @swagger
  * /plantProfiles/{Plant_id}:
@@ -42,7 +63,9 @@ router.get('/', getAllPlantProfiles);
  *          500:
  *              description: Error
  */
-router.get('/:id', getPlantProfile)
+router.get('/:id', getPlantProfile);
+
+
 
 
 

@@ -32,8 +32,8 @@ class plantProfiles {
     }
 
     static getByName(Common_Name){
-        let sql = 'SELECT * FROM plantprofiles WHERE Common_Name LIKE \'' + Common_Name +`%\';`;
-        return db.execute(sql);
+        let sql = `SELECT * FROM plantprofiles WHERE Common_Name LIKE ?;`;
+        return db.execute(sql, [`${Common_Name}%`]);
     }
 
 
