@@ -16,3 +16,5 @@ class Garden {
         return db.execute("DELETE FROM Garden WHERE UserId = "+ UserId +" AND Plant_id = "+ Plant_id +";");
     }
 }
+
+module.exports = Garden;
