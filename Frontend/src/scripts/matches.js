@@ -132,7 +132,7 @@ function displayMatches(matches){
         //Card div
         let cardDiv = document.createElement("div");
         cardDiv.className = "card border-primary mb-3 w-100 original-card";
-        cardDiv.style.height = "480px";
+        cardDiv.style.height = "500px";
         cardDiv.setAttribute("onclick", "clickCard(this)");
 
         //Image element

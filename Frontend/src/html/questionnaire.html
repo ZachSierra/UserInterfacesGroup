@@ -18,8 +18,9 @@ Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
         <link rel="stylesheet" href="../stylesheets/my-colors.css">
+        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
+        
     </head>
     <body>
         <section id="navigation-bar">
@@ -76,12 +77,14 @@ Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
     </div>
 
     <!-- Modal for displaying responses -->
-    <div id="responseModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h2>Your Answers</h2>
-            <div id="responses-list"></div>
-            <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+    <div class="matchesContainer">
+        <div id="responseModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2>Your Answers</h2>
+                <div id="responses-list"></div>
+                <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+            </div>
         </div>
     </div>  
         </div>

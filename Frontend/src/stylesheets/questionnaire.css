@@ -6,6 +6,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-top: 70px;
+}
+
+#greenhouse {
+  margin-top: 70px; /* Adjust this value to match your navbar's height */
 }
 .quiz-container {
   background-color: #d8e4cf;
@@ -88,6 +93,8 @@ body {
 #answers-list {
   margin-bottom: 20px;
 }
+
+
 
 /* Completion popup styling */
 #end-options.completion-popup {
@@ -413,6 +420,11 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding-top: 70px;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #b71212;
+  padding-top: 60px;
 }
 
 hr {
@@ -950,6 +962,7 @@ progress {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
+
 }
 
 @media (min-width: 576px) {
@@ -3949,6 +3962,14 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it is above other elements */
+  background-color: #fff; /* Example background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+
 }
 
 .nav-link {
