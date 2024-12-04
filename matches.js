@@ -13,7 +13,7 @@ import { Plant } from "../scripts/Plant.js"
 import { userChoices } from '../scripts/questionnaire.js';
 
 //Captures that the user wants to add this plant to their greenhouse
-function addToGreenhouse(button) {
+window.addToGreenhouse = function(button) {
     // Locate the parent card to extract plant information
     const card = button.closest('.card');
     const plantName = card.querySelector('.card-title').textContent.trim();
@@ -36,15 +36,24 @@ function addToGreenhouse(button) {
     button.disabled = true;
 }
 
-
+// returns to Home
+function returnHome(){
+    alert(`Do you wish to return home?`);
+    window.location.href='index.html';
+}
 
 //Shows the plant information
-function clickCard(card) {
+/*
+window.clickCard = function(card) {
     // Check if the clicked card is an "original" card
+    console.log("Card clicked.");
+    console.log(card.classList);
     if (card.classList.contains('original-card')) {
         const newCard = card.nextElementSibling; // Find the sibling new card
+        console.log("Next Card: ", newCard.classList);
         card.classList.add('d-none'); // Hide the original card
         newCard.classList.remove('d-none'); // Show the new card
+        console.log("Showing new card...");
     }
     // Check if the clicked card is a "new" card
     else if (card.classList.contains('new-card')) {
@@ -53,9 +62,36 @@ function clickCard(card) {
         originalCard.classList.remove('d-none'); // Show the original card
     }
 }
+*/
+window.clickCard = function (card) {
+
+    const sciName = card.id.split("-");
+    const name = sciName[0];
+
+    if (card.classList.contains('original-card')) {
+        const newCard = document.getElementById(name + "-new");
+        if (!newCard) {
+            console.error("No next sibling found for the original card:", card);
+            return;
+        }
+        card.classList.add('d-none'); // Hide the original card
+        newCard.classList.remove('d-none'); // Show the new card
+        console.log("Switched to new card:", newCard);
+    } else if (card.classList.contains('new-card')) {
+        const originalCard = document.getElementById(name + "-original");
+        if (!originalCard) {
+            console.error("No previous sibling found for the new card:", card);
+            return;
+        }
+        card.classList.add('d-none'); // Hide the new card
+        originalCard.classList.remove('d-none'); // Show the original card
+        console.log("Switched to original card:", originalCard);
+    }
+};
 
 
 function renderGreenhouse() {
+    console.log("Rendering greenhouse...");
     const greenhouseList = document.getElementById('greenhouse-list');
     greenhouseList.innerHTML = ''; // Clear previous content
 
@@ -102,11 +138,11 @@ function getImageSrc(name){
     if(name.includes("/")){
         let plantName = name.split("/");
         src = plantName[0];
-        console.log(src);
+        //console.log(src);
     } else{
         name.trim();
         src = name.split(" ").join("");
-        console.log(src);
+        //console.log(src);
     }
     
 
@@ -114,6 +150,12 @@ function getImageSrc(name){
         return str = "../assets/img/" + src +".jpeg";
     } else if(src === "Areca/ButterflyPalm"){
         return str = "../assets/img/ButterflyPalm.jpg";
+    } else if(src == "Areca "){
+        return str = "../assets/img/ButterflyPalm.jpg";
+    } else if(src == "Pothos "){
+        return str = "../assets/img/Pothos.jpg";
+    } else if(src == "Calathea "){
+        return str = "../assets/img/Calathea.jpg";
     }
 
     return str = "../assets/img/" + src +".jpg";
@@ -124,6 +166,10 @@ function displayMatches(matches){
 
     for(let i = 0; i < matches.length; i++){
 
+        //Used to set IDs of both cards
+        const matchSciName = matches[i].scientificName.split(" ");
+        const sciName = matchSciName[1];
+
         //Original Card
         //Outermost Column
         let originalCard = document.createElement("div");
@@ -131,15 +177,20 @@ function displayMatches(matches){
 
         //Card div
         let cardDiv = document.createElement("div");
-        cardDiv.className = "card border-primary mb-3 w-100 original-card";
-        cardDiv.style.height = "500px";
+        cardDiv.classList.add('card', 'border-primary', 'mb-3', 'w-100', 'original-card');
+        cardDiv.id = sciName + "-original";
+        console.log("Original ID: ", cardDiv.id);
+        //console.log(cardDiv.classList);
+        cardDiv.style.height = "580px";
+        cardDiv.style.padding = "10%";
         cardDiv.setAttribute("onclick", "clickCard(this)");
 
         //Image element
         let imgElement = document.createElement("img");
         imgElement.src = getImageSrc(matches[i].commonName);
-        console.log(getImageSrc(matches[i].commonName));
+        //console.log(getImageSrc(matches[i].commonName));
         imgElement.className = "card-img-top";
+        imgElement.style.width = "400px";
         imgElement.alt = "Plant Image";
 
         //Card Body div 
@@ -164,16 +215,21 @@ function displayMatches(matches){
         cardDiv.appendChild(cardBody);
         originalCard.appendChild(cardDiv);
 
-        greenhouseContainer.appendChild(originalCard);
+        
 
 
         //Hidden Card
-       let newCard = document.createElement("div"); 
-        newCard.className = "card border-primary mb-3 w-100 new-card d-none";
-        newCard.style.height = "480px";
+        let newCard = document.createElement("div"); 
+        newCard.classList.add('card', 'border-primary', 'mb-3', 'w-33', 'new-card', 'd-none');
+        newCard.id = sciName + "-new";
+        console.log("New ID: ", newCard.id);
+        //console.log(newCard.classList);
+        newCard.style.height = "580px";
+        newCard.style.width = "480px";
+        newCard.style.marginLeft = "0px";
         newCard.setAttribute("onclick", "clickCard(this)");
         
-
+        console.log("Max size: ", matches[i].maxSize);
         //Create the inner HTML content of the card
         newCard.innerHTML = `
         <h5 class="card-title">${matches[i].commonName}</h5>
@@ -207,11 +263,10 @@ function displayMatches(matches){
         </table>
         <h6>${matches[i].description}</h6>
     `;  
+        greenhouseContainer.appendChild(originalCard);
         greenhouseContainer.appendChild(newCard);
 
-    }
-    
-
+    }    
 
 }
 
@@ -229,8 +284,14 @@ function importPlants(profiles){
         let sciName = plantDesc[1];
         let size = plantDesc[2];
         let sizes = size.split("-");
+            if(size[0] === 1 && size[1] === 5){
+                minsize = 15;
+                maxSize = 30;
+            }
             let minSize = size[0];
-            let maxSize = size[1];
+            console.log(size[2]);
+            
+            let maxSize = size[2];
         let diff = plantDesc[3];
         let loc = plantDesc[4];
         let light = plantDesc[5];

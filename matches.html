@@ -1,8 +1,8 @@
 <!--
-This is the questionnaire html, which is the frontend written in html and bootstrap
-and the backend is written in the javascript code. 
+This is the matchmaking page that shows the plants that you 
+end up with after taking the quiz.
 
-Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
+Written by: Rodrigo Nunez and Sam Lagman
 -->
 
 
@@ -49,47 +49,62 @@ Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
                 </div>
             </nav>
         </section>
-        <!--html body and the questionnaire questions-->
-        <div class="quiz-container text-center">
-            <div id="question-number" class="quiz-header" >Question 1</div>
-            <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
-            <div class=justify-content-sm-center>
-                <div class="card-container">
-                    <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
-                    <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
-                    <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
-                    <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
-                    <div class="card" onclick="selectChoice(4)" id="choice-4" style="display: none;">Placeholder</div>
+<!-- Green house -->
+<!-- <section id="greenhouse" class="container my-3">
+    <div class="row g-4">
+        <div class="col" style="flex: 0 0 250px;">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h2>Plant Title</h2>
                 </div>
-            </div>    
-            <div class="skip-container">
-                <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
-            </div> 
-             <!-- End-of-quiz options -->
-    <div id="end-options" style="display: none;" class="completion-popup">
-        <h2>All Done! Ready when you are...</h2>
-        <div class="completion-buttons">
-            <button onclick="restartQuiz()" class="btn btn-primary">Let’s start over </button>
-            <button class="btn btn-primary" onclick="submitQuiz()">I loved my answers Let's Go!</button>
-        </div>
-        <button onclick="showResponses()" class="btn btn-secondary review-button">Review My Answers</button>
-    </div>
-
-    <!-- Modal for displaying responses -->
-    <div class="matchesContainer">
-        <div id="responseModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close-button" onclick="closeModal()">&times;</span>
-                <h2>Your Answers</h2>
-                <div id="responses-list"></div>
-                <button onclick="closeModal()" class="btn btn-secondary">Close</button>
             </div>
         </div>
-    </div>  
-        </div>
+    </div>
+</section> -->
+<!-- Greenhouse -->
 
-        
+<div id="greenhouse" class="greenhouseContainer">
 
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
+    </div>
+
+</div>
+<!----
+<section id="greenhouse" class="container my-5">
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
+    </div>
+
+</section>
+-->
+
+<!-- end greenhouse-->
+
+        <script src="../scripts/matches.js" type="module"></script>
         <script src="../scripts/questionnaire.js" type="module"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     </body>

@@ -55,9 +55,9 @@ Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
             <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
             <div class=justify-content-sm-center>
                 <div class="card-container">
-                    <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
-                    <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
-                    <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
+                    <div class="card" onclick="selectChoice(0)" id="choice-0">A. Indoors</div>
+                    <div class="card" onclick="selectChoice(1)" id="choice-1">B. Outdoors</div>
+                    <div class="card" onclick="selectChoice(2)" id="choice-2">C. Both</div>
                     <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
                     <div class="card" onclick="selectChoice(4)" id="choice-4" style="display: none;">Placeholder</div>
                 </div>
@@ -76,14 +76,12 @@ Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
     </div>
 
     <!-- Modal for displaying responses -->
-    <div class="matchesContainer">
-        <div id="responseModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close-button" onclick="closeModal()">&times;</span>
-                <h2>Your Answers</h2>
-                <div id="responses-list"></div>
-                <button onclick="closeModal()" class="btn btn-secondary">Close</button>
-            </div>
+    <div id="responseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Your Answers</h2>
+            <div id="responses-list"></div>
+            <button onclick="closeModal()" class="btn btn-secondary">Close</button>
         </div>
     </div>  
         </div>
