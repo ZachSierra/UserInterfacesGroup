@@ -1,22 +1,38 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
 const db = require('./config/database.js');
 
 app.use(express.json());
 app.use(cors());
 
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "FindMyPlant",
+            version: "1.0.0",
+            description: "A simple plant shop API"
+        },
+        servers : [
+            {
+                url: "http://localhost:5000/"
+            }
+        ]
+    },
+    apis: ["./app.js", './routes/*.js']
+}
+
+const swaggerSpec = swaggerJSDoc(options);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
+
+
 app.use("/users", require("./routes/users"));
 app.use("/plantProfiles", require("./routes/plantProfiles"));
 
-//Query to test for connection
-app.get('/', (req, res) => {
-    let sql = 'SELECT * from users';
-    let response = db.execute(sql);
-
-    res.send(response);
-})
 
 app.use((err, req, res, next) => {
     console.log(err.stack);

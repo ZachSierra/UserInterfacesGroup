@@ -1,7 +1,6 @@
 class resJson{
-    constructor(status, message, data){
-        this.success = status;
-        this.message = message;
+    constructor(description, data){
+        this.description = description;
         this.data = data;
     }
 }

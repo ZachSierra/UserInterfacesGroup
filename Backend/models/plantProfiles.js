@@ -23,26 +23,19 @@ class plantProfiles {
     }
 
     static getAll(){
-        return new Promise((resolve, reject) => {
-            db.query('SELECT * FROM plantProfiles', (err, result) => {
-                if(err){
-                    reject(err);
-                }
-                resolve(result);
-            });
-        });
+        return db.execute("SELECT * FROM plantprofiles;");
     }
 
     static getByID(Plant_id){
-        return new Promise((resolve, reject) => {
-            db.query('SELECT * FROM plantProfiles WHERE Plant_id = ?', [Plant_id], (err, result) => {
-                if(err){
-                    reject(err);
-                }
-                resolve(result);
-            });
-        });
+        let sql = 'SELECT * FROM plantprofiles WHERE Plant_id = ' + Plant_id;
+        return db.execute(sql);
+    }
+
+    static getByName(Common_Name){
+        let sql = 'SELECT * FROM plantprofiles WHERE Common_Name LIKE \'' + Common_Name +`%\';`;
+        return db.execute(sql);
     }
 
 
 }
+module.exports = plantProfiles;
