@@ -32,7 +32,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.use("/users", require("./routes/users"));
 app.use("/plantProfiles", require("./routes/plantProfiles"));
-app.use("/garden", require("./routes/garden"));
+app.use("/garden", require("./routes/Garden"));
 
 
 app.use((err, req, res, next) => {
