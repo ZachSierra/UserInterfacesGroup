@@ -6,7 +6,7 @@ const getAllPlantProfiles = async (req, res, next) => {
         const [allPlantProfiles, _] = await plantProfiles.getAll();
         res.status(200).json(new resJson('All plant profiles found', allPlantProfiles));
     } catch (error) {
-        res.json(new resJson('Error: ' + error, null));
+        res.status(500).json(new resJson('Error: ' + error, null));
     }
     next();
 }
@@ -22,7 +22,7 @@ const getPlantProfile = async (req, res, next) => {
 
         res.status(200).json(new resJson('Plant profile found', plantProfile));
     } catch (error) {
-        res.json(new resJson('Error: ' + error, null));
+        res.status(500).json(new resJson('Error: ' + error, null));
     }
     next();
 }
