@@ -1,4 +1,4 @@
-const url = 'http://ec2-18-227-140-139.us-east-2.compute.amazonaws.com:5000/';
+const url = 'https://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
