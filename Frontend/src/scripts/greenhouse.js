@@ -32,7 +32,7 @@ function populateGreenhouse(plants) {
     });
 }
 
-async function getPlantsFromAPI(){
+async function getPlantsFromAPI(id){
     const url = 'http://ec2-18-227-140-139.us-east-2.compute.amazonaws.com:5000/';
     const container = document.getElementById("plant-cards-container");
 
