@@ -55,7 +55,7 @@ const questions = [
     },
     {
         question: "What type of colors do you prefer in your plants?",
-        choices: ["A. Green", "B. Vibrant colors (red, pink, purple, blue)", "C.Subtle tones (white, pale yellow)"]
+        choices: ["A. Green", "B. Vibrant colors (red, pink, purple, blue)", "C. Subtle tones (white, pale yellow)"]
     },
     {
         question: "What kind of atmosphere are you trying to create with your plants?",
@@ -108,36 +108,30 @@ function loadQuestion() {
         }
     }
 
-    adjustGridLayout();
+    adjustLayout();
 }
 
 
-// Function to adjust the grid layout based on the number of visible cards 3 or 4
-function adjustGridLayout() {
+
+// Function to adjust the height of quiz container depending on number of choices
+
+function adjustLayout() {
     const visibleCards = Array.from(document.querySelectorAll(".card"))
         .filter(card => card.style.display !== "none"); // Count only visible cards
 
     const visibleCount = visibleCards.length; // Get the number of visible cards
-    const container = document.querySelector(".card-container");
+    const container = document.querySelector(".quiz-container");
 
     // Adjust grid layout based on visible card count
-    if (visibleCount === 3) {
-        container.style.gridTemplateColumns = "1fr 1fr 1fr";
-        container.style.gridTemplateRows = "none"; // Reset rows for clarity
+    if (visibleCount === 2){
+        container.style.height = '450px';
+    } else if (visibleCount === 3) {
+        container.style.height = '550px';
     } else if (visibleCount === 4) {
-        container.style.gridTemplateColumns = "1fr 1fr";
-        container.style.gridTemplateRows = "1fr 1fr";
+        container.style.height = '600px';
     } else if (visibleCount === 5) {
-        container.style.gridTemplateColumns = "1fr 1fr";
-        container.style.gridTemplateRows = "auto auto auto"; // Wrap rows dynamically
-    } else if (visibleCount === 2) {
-        container.style.gridTemplateColumns = "1fr 1fr";
-        container.style.gridTemplateRows = "none"; // Reset rows
-    } else {
-        // Default for any other number (e.g., 1 or 0)
-        container.style.gridTemplateColumns = "1fr";
-        container.style.gridTemplateRows = "none";
-    }
+        container.style.height = '700px';
+    } 
 }
 
 // Function to handle selecting a choice
@@ -167,6 +161,8 @@ window.skipQuestion = function() {
 
 // Function to restart the quiz
 window.restartQuiz = function() {
+
+    alert(`Do you want to restart the quiz?`);
     currentQuestionIndex = 0;
     userChoices = [];
     window.location.reload();

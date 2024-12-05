@@ -8,32 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleRegister(event) {
     event.preventDefault(); // Prevent the form from refreshing the page
     const username = document.getElementById('registerUsername').value.trim();
-    const email = document.getElementById('registerEmail').value.trim();
     const password = document.getElementById('registerPassword').value.trim();
-    const retypePassword = document.getElementById('retypePassword').value.trim();
 
     if (username === '' || password === '') {
         // Show error if fields are empty
         const errorMessage = document.getElementById('register-error-message');
         errorMessage.textContent = 'Username and Password cannot be empty.';
-        errorMessage.style.display = 'block';
-        return;
-    }
-    if (username.length <= 6){
-        const errorMessage = document.getElementById('register-error-message');
-        errorMessage.textContent = 'Username must be more than 6 characters';
-        errorMessage.style.display = 'block';
-        return;
-    }
-    if (!(password === retypePassword)){
-        const errorMessage = document.getElementById('register-error-message');
-        errorMessage.textContent = 'Passwords do not match';
-        errorMessage.style.display = 'block';
-        return;
-    }
-    if (email === ''){
-        const errorMessage = document.getElementById('register-error-message');
-        errorMessage.textContent = 'Email cannot be empty';
         errorMessage.style.display = 'block';
         return;
     }

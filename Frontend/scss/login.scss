@@ -1,3 +1,4 @@
+
 .custom-container{
   margin: 0px;
   padding: 0;
@@ -12,10 +13,9 @@
   background-size: cover;
 
 }
-
 .wrapper{
-  width: 30%;
-  height: 80%;
+  width: 30vw;
+  height: 80vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -25,12 +25,6 @@
   backdrop-filter: blur(8.5px);
   border-radius: 10px;
   color: white;
-}
-
-@media (max-width: 950px) {
-  .wrapper{
-    width: 50%;
-  }
 }
 
 
@@ -84,10 +78,6 @@
 .btn-primary{
   --bs-btn-color: white;
 }
-
-@import '../node_modules/bootstrap/scss/functions';
-@import '../node_modules/bootstrap/scss/variables';
-@import '../node_modules/bootstrap/scss/mixins';
 
 // Bootstrap Main
 @import '../node_modules/bootstrap/scss/bootstrap';
