@@ -1,4 +1,4 @@
-const url = 'https://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
+const url = 'http://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('submitButton');
@@ -50,8 +50,7 @@ const currentUser = getCookie('currentUser');
 if (currentUser !== ''){
     window.location.href = './account.html';
 }
-
-console.log(currentUser);
+getUsers();
 
 function setCookie(cname, cvalue, days) {
     const d = new Date();
