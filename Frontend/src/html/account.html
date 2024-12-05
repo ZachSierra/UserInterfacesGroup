@@ -1,3 +1,5 @@
+<!-- This is the account page. It is generic page that display the users info -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,17 +36,56 @@
             </div>
         </div>
     </nav>
-        <div class="container-fluid d-flex align-items-center justify-content-center flex-column bg-primary mx-auto" style="margin-top: 5%">
+        <!-- <div class="container-fluid d-flex align-items-center justify-content-center flex-column bg-primary mx-auto" style="margin-top: 5%">
             <h1>Account</h1>
             <div class="container d-flex align-items-center justify-content-center flex-column">
-                <div id="userName">
+                <div>
                     Name
                 </div>
-                <div id="email">
-                    Email
+                <div>
+                    Emails
                 </div>
-                <div id="password">
+                <div>
                     Password
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Account Container -->
+        <div id="account-container">
+            <div class="card">
+                <div class="card-header" style="background-color: rgb(115, 176, 145);">
+                    <h4>Account</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">Johnatan Smith</p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">example@example.com</p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0" style="min-width: 100px;">Password</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">Password@12++&</p>
+                    </div>
+                    </div>
+
+                    </div>
                 </div>
                 <a id="signout" class="btn btn-secondary" href="./login.html"> Sign Out</a>
             </div>
