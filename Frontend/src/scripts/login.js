@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function handleLogin(event) {
-    console.log('hello');
     event.preventDefault(); // Prevent the form from refreshing the page
     const username = document.getElementById('userName').value.trim();
     const password = document.getElementById('passWord').value.trim();
