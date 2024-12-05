@@ -1,11 +1,12 @@
 const url = 'https://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
+    const loginForm = document.getElementById('submitButton');
     loginForm.addEventListener('submit', handleLogin);
 });
 
 async function handleLogin(event) {
+    console.log('hello');
     event.preventDefault(); // Prevent the form from refreshing the page
     const username = document.getElementById('userName').value.trim();
     const password = document.getElementById('passWord').value.trim();
@@ -45,7 +46,6 @@ async function getUsers(){
 }
 
 const currentUser = getCookie('currentUser');
-console.log(currentUser);
 
 if (currentUser !== ''){
     window.location.href = './account.html';
