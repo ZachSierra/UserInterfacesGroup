@@ -1,7 +1,6 @@
 const url = 'http://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded');
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', handleLogin);
 });

@@ -80,7 +80,7 @@ function clickCard(card) {
     }
 }
 // Call the Function to Populate Greenhouse
-//populateGreenhouse(userPlants);
+populateGreenhouse(userPlants);
 
 function loadGreenhouse() {
     // Retrieve greenhouse data from localStorage
@@ -98,7 +98,7 @@ function loadGreenhouse() {
         card.className = 'col-md-4'; // Bootstrap column
         card.innerHTML = `
             <div class="card border-primary mb-3 w-100" style="height: 480px;">
-                <img src="../assets/img/Pothos.jpg" class="card-img-top" alt="${plant.name}">
+                <img src="${plant.img}" class="card-img-top" alt="${plant.name}">
                 <div class="card-body text-center">
                     <h5 class="card-title">${plant.name}</h5>
                     <!-- Delete Button -->
@@ -124,5 +124,3 @@ function deletePlant(index) {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', loadGreenhouse);
-const currentUser = localStorage.getItem('currentUser');
-getPlantsFromAPI(currentUser);
