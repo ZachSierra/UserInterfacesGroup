@@ -37,7 +37,7 @@ async function getPlantsFromAPI(id){
     const container = document.getElementById("plant-cards-container");
 
     try {
-        const response = await fetch(url + 'garden/1');
+        const response = await fetch(url + 'garden/' + id);
         const json = await response.json();
         data = json.data;
         console.log(data);
@@ -47,7 +47,7 @@ async function getPlantsFromAPI(id){
             card.className = "col-md-2"; // Bootstrap column
             card.innerHTML = `
             <div class="card original-card" onclick="clickCard(this)">
-                <img src="${plant.img}" class="card-img-top" alt="${plant.Common_Name}">
+                <img src="${plant.ImageLoc}" class="card-img-top" alt="${plant.Common_Name}">
                 <div class="card-body text-center">
                     <h5 class="card-title">${plant.Common_Name}</h5>
                 </div>
@@ -80,7 +80,7 @@ function clickCard(card) {
     }
 }
 // Call the Function to Populate Greenhouse
-populateGreenhouse(userPlants);
+//populateGreenhouse(userPlants);
 
 function loadGreenhouse() {
     // Retrieve greenhouse data from localStorage
@@ -98,7 +98,7 @@ function loadGreenhouse() {
         card.className = 'col-md-4'; // Bootstrap column
         card.innerHTML = `
             <div class="card border-primary mb-3 w-100" style="height: 480px;">
-                <img src="${plant.img}" class="card-img-top" alt="${plant.name}">
+                <img src="../assets/img/Pothos.jpg" class="card-img-top" alt="${plant.name}">
                 <div class="card-body text-center">
                     <h5 class="card-title">${plant.name}</h5>
                     <!-- Delete Button -->
@@ -124,4 +124,5 @@ function deletePlant(index) {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', loadGreenhouse);
-getPlantsFromAPI();
+const currentUser = localStorage.getItem('currentUser');
+getPlantsFromAPI(currentUser);

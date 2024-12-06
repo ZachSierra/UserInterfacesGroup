@@ -1,7 +1,8 @@
 const url = 'http://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('submitButton');
+    console.log('DOM loaded');
+    const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', handleLogin);
 });
 
@@ -18,9 +19,9 @@ async function handleLogin(event) {
     console.log(user);
 
     if (user.username === username && user.password === password) {
-        setCookie('currentUser', user.UserId, 1);
+        localStorage.setItem('currentUser', user.UserId);
         // Redirect to index.html if credentials are correct
-        window.location.href = 'index.html';
+        window.location.href = './index.html';
     } else {
         // Show error message if credentials are invalid
         const errorMessage = document.getElementById('error-message');
@@ -44,35 +45,12 @@ async function getUsers(){
     }
 }
 
-const currentUser = getCookie('currentUser');
+const currentUser = localStorage.getItem('currentUser');
 
-if (currentUser !== ''){
+if (currentUser) {
     window.location.href = './account.html';
 }
+console.log(currentUser);
 getUsers();
 
-function setCookie(cname, cvalue, days) {
-    const d = new Date();
-    d.setTime(d.getTime() + (days*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";";
-}
-//returns the cvalue of the cookie
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-function deleteCookie(cname){
-    document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+
