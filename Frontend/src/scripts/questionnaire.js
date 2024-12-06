@@ -70,6 +70,24 @@ let currentQuestionIndex = 0;
 let answers = [];
 export let userChoices = [];
 
+
+function updateProgressBar() {
+    const totalQuestions = questions.length;
+    const progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+
+    // Update the progress bar width
+    progressBar.style.width = `${progressPercentage}%`;
+
+    // Ensure the progress bar's aria attributes are correct
+    progressBar.setAttribute("aria-valuenow", progressPercentage);
+
+    // Update the text below the progress bar
+    progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+}
+
+
 // Function to load a question based on the current index
 function loadQuestion() {
     // Check if there are more questions
@@ -109,6 +127,7 @@ function loadQuestion() {
     }
 
     adjustLayout();
+    updateProgressBar(); // Update the progress bar after loading the question
 }
 
 
@@ -124,13 +143,13 @@ function adjustLayout() {
 
     // Adjust grid layout based on visible card count
     if (visibleCount === 2){
-        container.style.height = '450px';
+        container.style.height = '500px';
     } else if (visibleCount === 3) {
-        container.style.height = '550px';
+        container.style.height = '650px';
     } else if (visibleCount === 4) {
-        container.style.height = '600px';
-    } else if (visibleCount === 5) {
         container.style.height = '700px';
+    } else if (visibleCount === 5) {
+        container.style.height = '750px';
     } 
 }
 
@@ -162,10 +181,17 @@ window.skipQuestion = function() {
 // Function to restart the quiz
 window.restartQuiz = function() {
 
-    alert(`Do you want to restart the quiz?`);
-    currentQuestionIndex = 0;
-    userChoices = [];
-    window.location.reload();
+    const shouldRestart = confirm(`Do you want to restart the quiz?`);
+    
+    if (shouldRestart) { // If OK is clicked
+        // Reset quiz data
+        currentQuestionIndex = 0;
+        userChoices = [];
+        window.location.reload(); // Reload the page to restart the quiz
+    } else {
+        // Do nothing if Cancel is clicked
+        console.log("Quiz restart cancelled.");
+    }
     // document.querySelector(".card-container").style.display = "block";
     // document.querySelector(".skip-button").style.display = "inline-block";
     // document.getElementById("end-options").style.display = "none";
