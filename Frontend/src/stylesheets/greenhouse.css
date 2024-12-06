@@ -8,3 +8,12 @@
   font-size: 300px;
   padding-top: -5px;;
 }
+.hidden {
+  visibility: hidden; /* Hide the card, but keep the space in the layout */
+  pointer-events: none; /* Prevent interaction (clicking) on hidden cards */
+}
+
+.visible {
+  visibility: visible; /* Ensure visible cards are interactive */
+  pointer-events: auto; /* Allow interaction (clicking) on visible cards */
+}
