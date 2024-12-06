@@ -5,6 +5,7 @@ const router = express.Router();
 const {
     getAllUsers,
     getUser,
+    createUser
 } = require('../controllers/users');
 /**
  * @swagger
@@ -40,8 +41,41 @@ router.get('/', getAllUsers);
  *          500:
  *              description: Error
  */
-router.get('/:id', getUser)
-
+router.get('/:id', getUser);
+/**
+ * @swagger
+ * /users/:
+ *      post:
+ *        summary: This api creates a user
+ *        description: Create a user
+ *        requestBody:
+ *        required: true
+ *        parameters:
+ *          - in: body
+ *            name: body
+ *            schema:
+ *              type: object
+ *              properties:
+ *                username:
+ *                  type: string
+ *                  example: Zach
+ *                password:
+ *                  type: string
+ *                  example: password
+ *                email:
+ *                  type: string
+ *                  example: youremail@gmail.com
+ *            required:
+ *              - username
+ *              - password
+ *              - email
+ *        responses:
+ *            201:
+ *                description: User created
+ *            500:
+ *                description: Error
+ */
+router.post('/', createUser);
 
 
 module.exports = router;
