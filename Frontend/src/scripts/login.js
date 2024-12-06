@@ -1,4 +1,4 @@
-const url = 'http://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
+import { getUsers } from "./API.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
@@ -29,27 +29,9 @@ async function handleLogin(event) {
     }
 }
 
-async function getUsers(){
-    try {
-        const response = await fetch(url + 'users');
-        if (!response.ok){
-            throw new Error('Network response was not ok');
-        }
-        const json = await response.json();
-        const data = json.data;
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-    }
-}
-
 const currentUser = localStorage.getItem('currentUser');
-
 if (currentUser) {
     window.location.href = './account.html';
 }
-console.log(currentUser);
-getUsers();
 
 
