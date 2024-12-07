@@ -7,6 +7,7 @@ async function getAccount(id){
         }
         const json = await response.json();
         const data = json.data[0];
+        console.log(data);
         document.getElementById('userName').innerText = data.username;
         document.getElementById('email').innerText = data.email;
         document.getElementById('password').innerText = data.password;
