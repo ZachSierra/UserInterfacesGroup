@@ -6,7 +6,7 @@
   height: 100vh;
   background-color: #f0f0f0;
   font-size: 300px;
-  padding-top: -5px;;
+  padding-top: -5px;
 }
 .hidden {
   visibility: hidden; /* Hide the card, but keep the space in the layout */

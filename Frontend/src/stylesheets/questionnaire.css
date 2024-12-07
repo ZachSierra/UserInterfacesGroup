@@ -41,9 +41,10 @@ body {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 20px;
-  padding-left: 30%;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr 1fr;
 }
-.card {
+.card{
   background-color: #739f62;
   color: #fff;
   border: none;
@@ -54,14 +55,37 @@ body {
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  height: 60px;
-  width: 60%;
+  height: 70px;
+  position: relative;
+  transform-style: preserve-3d;
   transition: transform 0.2s;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  possition: absolute;
+  width: 60%;
+  height: 60px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #fff;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: #f0f0f0;
+  transform: rotateY(180deg);
+}
+
 .skip-button {
   display: grid;
   background-color: #739f62;
@@ -128,11 +152,11 @@ body {
   padding: 10%;
 }
 
-.newCard{
+/* .newCard{
   width: 480px;
   margin-left: 0px;
   margin-right: 20px;
-}
+} */
 
 /* Styling for main buttons */
 .completion-buttons {

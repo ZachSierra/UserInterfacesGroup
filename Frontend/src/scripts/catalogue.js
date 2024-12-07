@@ -92,7 +92,7 @@ function parseCSV(data) {
 }
 
 function renderPlantCatalogue(plants) {
-    const catalogueContainer = document.getElementById("catalogueCards");
+    const catalogueContainer = document.getElementById("greenhouseCards");
     catalogueContainer.innerHTML = ""; // Clear existing content
 
     plants.forEach(plant => {
@@ -213,6 +213,7 @@ function getImageSrc(name){
     return str = "../assets/img/" + src +".jpg";
 }
 
+// Function to switch between original and new cards
 function clickCard(card) {
     const sciName = card.id.split("-");
     const name = sciName[0];

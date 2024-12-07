@@ -1,4 +1,6 @@
 /**
+ * 
+ * THIS ONE WAS DONE FOR TESTING BUT NOW WORKS
  * Connected to matches.html
  * Imports plant inventory from PlantProfiles.csv
  * Creates matches from passed user choices from quiz
@@ -100,25 +102,6 @@ window.clickCard = function (card) {
 };
 
 
-function renderGreenhouse() {
-    console.log("Rendering greenhouse...");
-    const greenhouseList = document.getElementById('greenhouse-list');
-    greenhouseList.innerHTML = ''; // Clear previous content
-
-    greenhousePlants.forEach((plant) => {
-        const plantCard = document.createElement('div');
-        plantCard.className = 'col';
-        plantCard.innerHTML = `
-            <div class="card border-primary mb-3 w-100" style="height: 480px;">
-                <img src="${plant.img}" class="card-img-top" alt="${plant.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${plant.name}</h5>
-                </div>
-            </div>
-        `;
-        greenhouseList.appendChild(plantCard);
-    });
-}
 
 
 //This pulls from the backend to get a random plant suggestion

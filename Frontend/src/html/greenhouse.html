@@ -33,6 +33,9 @@ Written by: Katherine Raguini
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalog</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./faq.html">FAQ</a>
                             </li>
                             <li class="nav-item">
@@ -64,21 +67,24 @@ Written by: Katherine Raguini
 </section> -->
 <!-- Greenhouse -->
     <!-- Page Title -->
-    <div class="container">
-        <h1 class="greenhouse-container py-5">Your Greenhouse</h1>
-    
-
-    <!-- Cards Container -->
-    <div class="container">
-        <div class="row" id="plant-cards-container" onclick="clickCard(this)">
+    <div style="margin-top: 150px;">
+        <div class="container">
+            <h1 class="greenhouse-container py-5" style="font-size: 3rem;">Your Greenhouse</h1>
         
-            <!-- Cards will be dynamically injected here -->
+
+            <!-- Cards Container -->
+            <div class="container">
+                <div class="row" id="plant-cards-container" onclick="clickCard(this)">
+                
+                    <!-- Cards will be dynamically injected here -->
+                </div>
+            </div>
         </div>
-    </div>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="../scripts/greenhouse.js"></script>
+    <script src="../scripts/matches.js"></script>
    
 </body>
 </html>

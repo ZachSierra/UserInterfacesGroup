@@ -24,6 +24,9 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalog</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./faq.html">FAQ</a>
                             </li>
                             <li class="nav-item">
@@ -42,41 +45,38 @@
         </section>
    
 
-        <div id="greenhouse" class="greenhouseContainer">
+<div id="greenhouse" class="greenhouseContainer">
             <!-- Add filter dropdowns above the search input -->
-<div class="mb-3">
-    <input type="text" id="searchInput" class="form-control" placeholder="Search plants..." oninput="filterPlants()">
-</div>
+    <div class="mb-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search plants..." oninput="filterPlants()">
+    </div>
 
-<!-- Filter by Water -->
-<div class="mb-3">
-    <label for="filterWater" class="form-label">Filter by Water</label>
-    <select id="filterWater" class="form-select">
-        <option value="">All</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-    </select>
-</div>
+    <!-- Filter by Water -->
+    <div class="mb-3">
+        <label for="filterWater" class="form-label">Filter by Water</label>
+        <select id="filterWater" class="form-select">
+            <option value="">All</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
 
-<!-- Filter by Pet Friendly -->
-<div class="mb-3">
-    <label for="filterPetFriendly" class="form-label">Filter by Pet Friendly</label>
-    <select id="filterPetFriendly" class="form-select">
-        <option value="All">All</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Mildly">Mildly</option>
-    </select>
-</div>
+    <!-- Filter by Pet Friendly -->
+    <div class="mb-3">
+        <label for="filterPetFriendly" class="form-label">Filter by Pet Friendly</label>
+        <select id="filterPetFriendly" class="form-select">
+            <option value="All">All</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Mildly">Mildly</option>
+        </select>
+    </div>   
 
-       
-            <div class="row row-cols-1 row-cols-md-3 g-4" id="catalogueCards">
+    <br/>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
                 <!-- Plant cards will be dynamically inserted here -->
-            </div>
-
-            
-            
+            </div>      
     </div>
 
     <script src="../scripts/catalogue.js" type="module"></script>
