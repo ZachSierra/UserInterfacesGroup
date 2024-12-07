@@ -1,98 +1,24 @@
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-Common_Name,Scientific_Name,Size_in_ft,Difficulty ,Location,Light_Requirement,Watering_Needs,Growth_Habit,Flowering,Atmosphere,Colors,Temperature_in_farhenheit,Humidity_Requirements,Pet_Friendly,Pest_Resistant,Description
-Pothos / Devil's Ivy,Epipremnum aureum,6-10,Easy,Indoor,Low to medium ,Moderate,Trailing/Vining,,"Relaxing, casual","Green 
-White, Yellow, 
-or Light Green
-",65-85 ,Average,No,,"Beginner friendly! Perfect for 
-low light and indoors"
-Aloe Vera,Aloe barbadensis miller,1-2,Easy,Both,Bright ,Low,Upright,,"Minimal, desert",Green ,55-80,Low,No,,"Valued for its medicinal uses
-and ability to thrive 
-with minimal care"
-Fiddle Leaf Fig,Ficus lyrata,6-10,Hard,Indoor,Bright ,Moderate,Upright,,"Elegant, modern",Dark green,60-75,High,No,,"Striking, statement plant 
-with large leaves"
-Spider Plant,Chlorophytum comosum,1-2,Easy,Indoor,Bright ,Moderate,Arching,,"Airy, fresh","Green, White",55-80,Average,Yes,,"Adaptable houseplant known 
-for its air-purifying qualities"
-Boston Fern,Nephrolepis exaltata,1-3,Moderate,Both,Bright ,High,Arching,,"Lush, Tropical",Bright Green,60-75,High,Yes,,"Lush, attractive plant 
-that thrives in humid conditions"
-Areca / Butterfly Palm,Dypsis lutescens,6-7,Moderate,Indoor,Bright ,Moderate,Upright,,Tropical,Green,65-75,High,Yes,,"Elegant, air-purifying plant
- that adds tropical vibes"
-Calathea / Prayer Plant,Calathea spp.,1-3,Hard,Indoor,Bright ,High,Upright,,"Artistic, Vibrant","Green, Purple,
-Pink, White",65-80,High,Yes,,"Stunning foliage and unique 
-leaf patterns, but it requires
-diligent care"
-Succulent,Echeveria spp. ,>1,Moderate,Both,Bright ,Low,Rosette-shaped,,"Modern, Minimal","Green, Purple,
-Red, Pink",60-80,Low,No,,"Beautiful rosette shape 
-and vibrant colors"
-Rubber Plant,Ficus elastica,3-8,Moderate,Indoor,Bright ,Moderate,Upright,,"Sleek, bold, 
-contemporary","Dark Green, 
-Burgundy, 
-Cream, Pink",60-80,Average,Mildly,,"Large, glossy leaves that help
-purify the air"
-Prayer Plant,Maranta leuconeura,>1,Easy,Indoor,Bright ,Moderate,Low,,Unique,"Green, Red,
-Purple, White",65-80,High,No,,"Patterned leaves that fold at
-night"
-ZZ Plant,Zamioculcas zamiifolia,2-3,Easy,Indoor,Low ,Low,Upright,,"Modern, Clean",Dark Green,60-75,Low,Mildly,,"Prized for its resilience and 
-ability to thrive in low light"
-Monstera,Monstera deliciosa,3-10,Moderate,Indoor,Bright ,Moderate,Climbing/Trailing,,Tropical,Green,65-85,High,Mildly,,"Dramatic foliage and unique
-appearance, adding a 
-tropical touch"
-Snake Plant,Sanseviera trifasciata,1-4,Easy,Both,Low ,Low,Upright,,Modern,"Dark Green, 
-Yellow, White",60-80,Low,Mildly,,"One of the toughest houseplants
-often recommended for those 
-who may not have a 
-green thumb!"
-Orchid,Phalaenopsis spp. ,1-3,Hard,Both,Bright ,Moderate,Upright,Yes,"Elegant, 
-Sophisticated","White, Pink,
-Purple, Yellow,
-Red",65-85,High,No,,"Exquisite blooms and delicate 
-beauty, but they require
- specific care"
-String of Hearts,Ceropegia woodii,1-3,Moderate,Indoor,Bright ,Low,Trailing ,,"Delicate,
-Whimsical","Green, Silver,
-White, Purple",65-80,Average,No,,"Whimsical touch to any space
- with its delicate, 
-heart-shaped leaves"
-Bird's Nest Fern,Asplenium nidus,2-4,Easy,Indoor,Low to Bright,Moderate,Rosette-shaped,,"Lush, Tropical",Bright Green,60-75,High,Yes,,"Tropical fern with wavy leaves,
-simple yet lush feel"
-Chinese Money Plant,Pilea peperomiodes,1-2,Easy,Indoor,Bright ,Low,Upright,,"Minimalist, Quirky",Green,60-75,Average,Yes,,"Round, coin-shaped leaves are
-the perfect touch of modern
-whimsy"
-Bougainvillea,Bougainvillea spectabilis,15-30,Moderate,Outdoor,Full sun,Low,"Climbing, 
-Vining",Yes,"Tropical, 
-Vibrant","Pink, Red,
-Purple, Orange",60-90,Low,No,,"Vigorous, flowering vine
-known for its bright bracts that
-bloom in a variety of colors"
-Hibiscus,Hibiscus rosa-sinensis,3-6,Moderate,Outdoor,Full sun,Moderate,Bushy,Yes,"Tropical,
-Cheerful","Red, Pink,
-Yellow, Orange",60-85,High,No,,"Large, colorful flowers, that
-add a tropical flair to
-outdoor gardens"
-Gardenia,Gardenia jasminoides,3-8,Difficult,Outdoor,Partial shade,High,"Shrub,
-Flowering",,Elegant,White,60-75,High,No,,"A beautiful, fragrant shrub
-known for its creamy white
-flowers and glossy green leaves"
-Plumeria/Frangipani,Plumeria rubra,6-15,Moderate,Outdoor,Full sun,Moderate,Bushy,Yes,Tropical,"White, Yellow,
-Pink, Red",65-95,Average,No,,"Highly fragrant and beautiful
-flowers often used in leis"
-Bird of Paradise,Strelitzia reginae,4-6,Moderate,Outdoor,Full sun ,Moderate,"Upright, Clumping",,"Bold, Exotic,
-Flowering","Green,
-Orange, Blue",60-90,Average,No,,"Large, banana-like leaves,
-and unique, bird-shaped flowers"
-Umbrella Plant,Schefflera arboricola,3-6,Moderate,Both,"Bright indirect,
-Full sun",Moderate,"Upright, Bushy",,Modern,Green,65-85,Average,No,,"A hardy, shrubby plant
-with glossy, umbrella-shaped leaves "
-Jade Plant,Crassula ovata,3-6,Easy,Both,Bright,Low,"Shrubby, Upright",,"Minimalist,
-Modern","Green, Red ",60-75,Low,No,,"Classic succulent that can live
-both indoors and outdoors"
-Asparagus Fern,Asparagus densiflorus,1-2,Easy,Both,"Medium, Bright",Moderate,Trailing,,"Airy, Delicate",Green,55-80,Average,No,,"A delicate fern with airy,
-needle-like leaves"
-Yucca Plant,Yucca elephantipes,3-10,Easy,Both,"Bright, Full Sun",Low,Upright,,Minimalist,Green,60-90,Low,No,,"A hardy architectural plant that
-works well indoors or outdoors"
-Chinese Evergreen,Aglaonema commutatum,1-3,Easy,Both,"Low, Medium",Moderate,"Bushy, Upright",,Colorful,"Green, Silver,
-Pink",60-75,High,No,,"Adaptable plants with colorful
-foliage"
-Elephant Ear,Alocasia macrorrhiza,2-3,Easy,Both,"Low, Medium, Bright",Low,"Clumping, Upright",,Tropical,Green,60-75,Average,Yes,,"Known for its large, heart-shaped
-leaves that add drama to 
-gardens or living rooms"
+"Pothos / Devil's Ivy","Epipremnum aureum","6-10","Easy","Indoor","Medium","Moderate","Trailing/Vining","No","Rustic and natural","Cozy/inviting","Green","65-85","Average","No","Yes","The Pothos, commonly known as Devil's Ivy, is a popular, hardy houseplant native to Southeast Asia and the Pacific islands. It is prized for its vibrant, heart-shaped leaves. Pothos is a trailing or climbing vine, making it perfect for hanging baskets, trellises, or as a tabletop accent. It grows well in low light and indoors."
+"Aloe Vera","Aloe barbadensis miller","1-2","Easy","Both","Bright","Low","Upright","No","Quirky and unique","Energizing/vibrant","Green","55-80","Low","No","Yes","Aloe vera is a succulent plant known for its fleshy, spiky green leaves filled with soothing gel often used in skincare and medicine. It thrives in bright, indirect sunlight and requires minimal watering, making it a low-maintenance choice. Aloe vera is also praised for its air-purifying properties."
+"Fiddle Leaf Fig","Ficus lyrata","6-10","Hard","Indoor","Bright","Moderate","Upright","No","Rustic and natural","Cozy/inviting","Green","60-75","High","No","No","The fiddle leaf fig (Ficus lyrata) is a stylish indoor plant with large, glossy, violin-shaped leaves. It prefers bright, indirect light and consistent watering but can be sensitive to changes in environment. Its dramatic foliage makes it a centerpiece in modern decor. It's a striking, statement plant with large leaves."
+"Spider Plant","Chlorophytum comosum","1-2","Easy","Indoor","Bright","Moderate","Upright","No","Quirky and unique","Energizing/vibrant","Subtle","55-80","Average","Yes","Yes","The spider plant (Chlorophytum comosum) is a resilient, fast-growing plant with arching green and white-striped leaves. Easy to care for, it thrives in indirect light and helps purify indoor air. Its cascading growth and baby spiderettes make it a charming addition to any space and it is known for its air-purifying qualities."
+"Boston Fern","Nephrolepis exaltata","1-3","Moderate","Both","Bright","High","Upright","No","Lush and tropical","Cozy/inviting","Green","60-75","High","Yes","No","The Boston fern (Nephrolepis exaltata) is a classic houseplant known for its lush, feathery fronds. It thrives in humid environments with indirect light and consistent watering. Ideal for hanging baskets, it adds a touch of elegance and improves indoor air quality."
+"Areca / Butterfly Palm","Dypsis lutescens","6-7","Moderate","Indoor","Bright","Moderate","Upright","No","Lush and tropical","Energizing/vibrant","Green","65-75","High","Yes","Yes","The areca palm (Dypsis lutescens) is a tropical plant with feathery, arching fronds. It thrives in bright, indirect light and adds a lush, airy feel to indoor spaces while purifying the air."
+"Calathea / Prayer Plant","Calathea spp.","1-3","Hard","Indoor","Bright","High","Upright","No","Quirky and unique","Energizing/vibrant","Vibrant","65-80","High","Yes","No","Calatheas are known for their striking, patterned leaves in shades of green, purple, and white. They prefer low to medium light and high humidity, making them perfect for adding vibrancy to indoor spaces."
+"Succulent","Echeveria spp.",">1","Moderate","Both","Bright","Low","Compact","No","Quirky and unique","Calm/serene","Vibrant","60-80","Low","No","Yes","Succulents are low-maintenance plants with thick, fleshy leaves designed to retain water. They thrive in bright, direct light and require minimal watering, making them ideal for beginners."
+"Rubber Plant","Ficus elastica","3-8","Moderate","Indoor","Bright","Moderate","Upright","No","Minimalistic and modern","Calm/serene","Vibrant","60-80","Average","Mildly","Yes","The rubber plant (Ficus elastica) has glossy, deep green or burgundy leaves. It thrives in bright, indirect light and is a bold, low-maintenance addition to modern interiors."
+"Prayer Plant","Maranta leuconeura",">1","Easy","Indoor","Bright","Moderate","Compact","No","Quirky and unique","Energizing/vibrant","Vibrant","65-80","High","No","No","The prayer plant (Maranta leuconeura) features oval, patterned leaves that fold up at night like hands in prayer. It loves humidity and indirect light, making it perfect for bathrooms or shaded spots."
+"ZZ Plant","Zamioculcas zamiifolia","2-3","Easy","Indoor","Low","Low","Upright","No","Quirky and unique","Energizing/vibrant","Green","60-75","Low","Mildly","Yes","The ZZ plant (Zamioculcas zamiifolia) is a nearly indestructible houseplant with shiny, deep green, waxy leaves. It thrives in low light and requires minimal care, ideal for beginners."
+"Monstera","Monstera deliciosa","3-10","Moderate","Indoor","Bright","Moderate","Trailing/Vining","No","Lush and tropical","Cozy/inviting","Green","65-85","High","Mildly","No","The monstera (Monstera deliciosa) is famous for its large, split leaves, giving it the nickname 'Swiss cheese plant.' It thrives in bright, indirect light and adds a dramatic tropical vibe."
+"Snake Plant","Sansevieria trifasciata","1-4","Easy","Both","Low","Low","Upright","No","Quirky and unique","Energizing/vibrant","Vibrant","60-80","Low","Mildly","Yes","The snake plant (Sansevieria trifasciata) is a tough, upright plant with sword-like leaves. It thrives in low light and is nearly impossible to kill, perfect for purifying the air in any room."
+"Orchid","Phalaenopsis spp.","1-3","Hard","Both","Bright","Moderate","Upright","Yes","Lush and tropical","Calm/serene","Subtle","65-85","High","No","No","Orchids (family Orchidaceae) are elegant flowering plants known for their exotic blooms in various colors. They thrive in indirect light, high humidity, and well-draining soil."
+"String of Hearts","Ceropegia woodii","1-3","Moderate","Indoor","Bright","Low","Trailing/Vining","No","Quirky and unique","Cozy/inviting","Vibrant","65-80","Average","No","No","The string of hearts (Ceropegia woodii) is a trailing vine with delicate, heart-shaped leaves. It thrives in bright, indirect light and is perfect for hanging baskets or shelves."
+"Bird's Nest Fern","Asplenium nidus","2-4","Easy","Indoor","Medium","Moderate","Upright","No","Lush and tropical","Energizing/vibrant","Green","60-75","High","Yes","No","The bird's nest fern (Asplenium nidus) has wavy, sword-shaped fronds and thrives in indirect light and high humidity. It is an excellent choice for adding greenery to bathrooms."
+"Chinese Money Plant","Pilea peperomiodes","1-2","Easy","Indoor","Bright","Low","Upright","No","Quirky and unique","Energizing/vibrant","Green","60-75","Average","Yes","Yes","The Chinese money plant (Pilea peperomioides) features round, coin-like leaves. It is easy to care for and thrives in bright, indirect light, often considered a symbol of good fortune."
+"Bougainvillea","Bougainvillea spectabilis","15-30","Moderate","Outdoor","Full sun","Low","Trailing/Vining","Yes","Rustic and natural","Energizing/vibrant","Vibrant","60-90","Low","No","Yes","Bougainvillea is a vibrant, flowering vine with papery bracts in shades of pink, red, or purple. It thrives in full sun and adds bold color to outdoor spaces or patios."
+"Hibiscus","Hibiscus rosa-sinensis","3-6","Moderate","Outdoor","Full sun","Moderate","Bushy","Yes","Lush and tropical","Energizing/vibrant","Vibrant","60-85","High","No","No","The hibiscus is a tropical shrub known for its large, showy flowers in a variety of colors. It thrives in full sun and needs regular watering to keep its blossoms vibrant."
+"Jade Plant","Crassula ovata","3-5","Easy","Both","Bright","Low","Upright","Yes","Rustic and natural","Calm/serene","Green","50-85","Low","No","Yes","The jade plant (Crassula ovata) is a popular succulent known for its fleshy, round, green leaves. It prefers bright light and is easy to care for, symbolizing good luck in many cultures."
+"Asparagus Fern","Asparagus densiflorus","1-2","Easy","Both","Medium","Moderate","Trailing/Vining","No","Rustic and natural","Calm/serene","Green","55-80","Average","No","No","The asparagus fern (Asparagus setaceus) has soft, feathery foliage that thrives in bright, indirect light and humid conditions. It is an elegant choice for hanging baskets or shaded corners."
+"Yucca Plant","Yucca elephantipes","3-10","Easy","Both","Full Sun","Low","Upright","No","Quirky and unique","Energizing/vibrant","Green","60-90","Low","No","Yes","The yucca plant is a hardy plant with spiky leaves and a striking, architectural look. It thrives in bright, direct light and needs minimal watering, perfect for sunny spots indoors or outdoors."
+"Chinese Evergreen","Aglaonema commutatum","1-3","Easy","Both","Medium","Moderate","Upright","No","Lush and tropical","Energizing/vibrant","Subtle","60-75","High","No","Yes","The Chinese evergreen (Aglaonema) is a resilient plant with patterned green and silver leaves. It thrives in low to medium light and is an excellent choice for beginners."
+"Elephant Ear","Alocasia macrorrhiza","2-3","Easy","Both","Medium","Low","Trailing/Vining","No","Lush and tropical","Energizing/vibrant","Green","60-75","Average","Yes","No","Elephant ear plants (Colocasia or Alocasia) are tropical plants with large, dramatic, heart-shaped leaves. They prefer bright, indirect light and consistent watering for a bold, lush look."

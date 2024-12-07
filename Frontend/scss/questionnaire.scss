@@ -29,12 +29,27 @@ body {
 }
 .card-container {
   display: flex;
-  justify-content: space-around;
-  gap: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
+
+/* For smaller screens: stack in one column */
+@media (max-width: 1000px){
+  .card-container{
+    flex-direction: column;
+  }
+
+  .choice{
+    flex: 0.8; /* 80% of width */
+  }
+
+}
+
 .card {
+  flex: 0 0 48%; /* Each choice takes 48% of the container*/
   background-color: #739f62;
   color: #fff;
   border: none;

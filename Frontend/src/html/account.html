@@ -1,3 +1,5 @@
+<!-- This is the account page. It is generic page that display the users info -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +21,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="./catalogue.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./faq.html">FAQ</a>
                     </li>
                     <li class="nav-item">
@@ -28,13 +33,13 @@
                         <a class="nav-link" href="questionnaire.html">Quiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login.html">Account</a>
+                        <a class="nav-link" href="./account.html">Account</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-        <div class="container-fluid d-flex align-items-center justify-content-center flex-column bg-primary mx-auto" style="margin-top: 5%">
+        <!-- <div class="container-fluid d-flex align-items-center justify-content-center flex-column bg-primary mx-auto" style="margin-top: 5%">
             <h1>Account</h1>
             <div class="container d-flex align-items-center justify-content-center flex-column">
                 <div>
@@ -47,7 +52,50 @@
                     Password
                 </div>
             </div>
+        </div> -->
+
+        <!-- Account Container -->
+        <div id="account-container">
+            <div class="card">
+                <div class="card-header" style="background-color: rgb(115, 176, 145);">
+                    <h4>Account</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p id="userName" class="text-muted mb-0">John Doe</p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p  id="email" class="text-muted mb-0">example@example.com</p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0" style="min-width: 100px;">Password</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p id="password" class="text-muted mb-0">Password@12++&</p>
+                    </div>
+                    </div>
+
+                    </div>
+                </div>
+                <form id="signout">
+                    <button id="submitButton" class="btn btn-secondary" type="submit" >Sign Out</button>
+                </form>
+            </div>
         </div>
 
+    <script type="module" src="../scripts/account.js"></script>
     </body>
 </html>

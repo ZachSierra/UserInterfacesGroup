@@ -2,7 +2,7 @@
 This is the questionnaire html, which is the frontend written in html and bootstrap
 and the backend is written in the javascript code. 
 
-Written by: Anna Vielma and Katherine Raguini
+Written by: Anna Vielma, Katherine Raguini, and Sam Lagman
 -->
 
 
@@ -33,6 +33,9 @@ Written by: Anna Vielma and Katherine Raguini
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalog</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./faq.html">FAQ</a>
                             </li>
                             <li class="nav-item">
@@ -42,7 +45,7 @@ Written by: Anna Vielma and Katherine Raguini
                                 <a class="nav-link" href="questionnaire.html">Quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./login.html">Account</a>
+                                <a class="nav-link" href="./account.html">Account</a>
                             </li>
                         </ul>
                     </div>
@@ -50,44 +53,60 @@ Written by: Anna Vielma and Katherine Raguini
             </nav>
         </section>
         <!--html body and the questionnaire questions-->
-        <div class="quiz-container text-center">
-            <div id="question-number" class="quiz-header" >Question 1</div>
-            <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
-            <div class=justify-content-sm-center>
-                <div class="card-container">
-                    <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
-                    <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
-                    <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
-                    <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
+        <div class="quiz-wrapper"></div>
+            <div class="quiz-container text-center">
+                <div id="question-number" class="quiz-header" >Question 1</div>
+                <div id="question-text" class="quiz-question">Do you prefer indoor or outdoor plants?</div>
+                <div class=justify-content-sm-center>
+                    <div class="card-container">
+                        <div class="card" onclick="selectChoice(0)" id="choice-0">Indoors</div>
+                        <div class="card" onclick="selectChoice(1)" id="choice-1">Outdoors</div>
+                        <div class="card" onclick="selectChoice(2)" id="choice-2">Both</div>
+                        <div class="card" onclick="selectChoice(3)" id="choice-3" style="display: none;">Placeholder</div> <!-- Initially hidden -->
+                        <div class="card" onclick="selectChoice(4)" id="choice-4" style="display: none;">Placeholder</div>
+                    </div>
+                </div>    
+                <div class="skip-container">
+                    <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
+                </div> 
+                <!-- Questionnaire progress bar -->
+                <div id="progress-bar-container" class="container my-3">
+                    <div class="progress">
+                        <div id="progress-bar" class="progress-bar bg-success" role="progressbar" 
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p id="progress-text" class="text-center mt-2">Question 1 of 15</p>
                 </div>
-            </div>    
-            <div class="skip-container">
-                <button class="skip-button col-2" onclick="skipQuestion()">Skip</button>
-            </div> 
-             <!-- End-of-quiz options -->
-    <div id="end-options" style="display: none;" class="completion-popup">
-        <h2>All Done! Ready when you are...</h2>
-        <div class="completion-buttons">
-            <button onclick="restartQuiz()" class="btn btn-primary">Let’s start over </button>
-            <button class="btn btn-primary" onclick="submitQuiz()">I loved my answers Let's Go!</button>
-        </div>
-        <button onclick="showResponses()" class="btn btn-secondary review-button">Review My Answers</button>
-    </div>
-
-    <!-- Modal for displaying responses -->
-    <div id="responseModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h2>Your Answers</h2>
-            <div id="responses-list"></div>
-            <button onclick="closeModal()" class="btn btn-secondary">Close</button>
-        </div>
-    </div>  
+            </div>
+                
+        </div>    
+                <!-- End-of-quiz options -->
+        <div id="end-options" style="display: none;" class="completion-popup">
+            <h2>All Done! Ready when you are...</h2>
+            <div class="completion-buttons">
+                <button onclick="restartQuiz()" class="btn btn-primary">Let’s start over </button>
+                <button class="btn btn-primary" onclick="submitQuiz()">I loved my answers Let's Go!</button>
+            </div>
+            <button onclick="showResponses()" class="btn btn-secondary review-button">Review My Answers</button>
         </div>
 
-        
+        <!-- Modal for displaying responses -->
+        <div class="matchesContainer">
+            <div id="responseModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <h2>Your Answers</h2>
+                    <div id="responses-list"></div>
+                    <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>  
+            </div>
 
-        <script src="../scripts/questionnaire.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    </body>
+
+            
+
+            <script src="../scripts/questionnaire.js" type="module"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        </body>
 </html>

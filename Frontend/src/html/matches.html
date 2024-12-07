@@ -2,7 +2,7 @@
 This is the matchmaking page that shows the plants that you 
 end up with after taking the quiz.
 
-Written by: Rodrigo Nunez
+Written by: Rodrigo Nunez and Sam Lagman
 -->
 
 
@@ -33,6 +33,9 @@ Written by: Rodrigo Nunez
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalog</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./faq.html">FAQ</a>
                             </li>
                             <li class="nav-item">
@@ -42,7 +45,7 @@ Written by: Rodrigo Nunez
                                 <a class="nav-link" href="questionnaire.html">Quiz</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./login.html">Account</a>
+                                <a class="nav-link" href="./account.html">Account</a>
                             </li>
                         </ul>
                     </div>
@@ -63,192 +66,50 @@ Written by: Rodrigo Nunez
     </div>
 </section> -->
 <!-- Greenhouse -->
+
+<div id="greenhouse" class="greenhouseContainer">
+
+    <div class="text-center">
+        <h2>We Think You Will Like These Plants...</h2>
+    </div>
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
+    </div>
+
+</div>
+<!----
 <section id="greenhouse" class="container my-5">
     <div class="text-center">
         <h2>We Think You Will Like These Plants...</h2>
     </div>
     <br>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-    <!-- Original Card-->
-        <div class="col">
-            <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
-                <img src="../assets/images/Monstera-Deliciosa-Window-Leaf-Square-Image-420x420.jpg" class="card-img-top" alt="Plant Image">
-                <div class="card-body">
-                    <h5 class="card-title">Mostera</h5>
-                    <button 
-                        type="button" 
-                        class="btn btn-primary" 
-                        onclick="addToGreenhouse(this)">
-                        Add to Greenhouse
-                    </button>
-                </div>
-            </div>
-        <!-- END Original Card-->
-
-        <!-- New Card (initially hidden) -->
-            <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(this)" style="height: 480px;">
-                <h5 class="card-title">Mostera (Araceae)</h5>
-                    <table class="table table-borderless text-start">
-                        <tbody>
-                        <tr>
-                            <td>Max Size:</td>
-                            <td>5ft</td>
-                        </tr>
-                        <tr>
-                            <td>Difficulty:</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td>Light:</td>
-                            <td>Medium</td>
-                        </tr>
-                        <tr>
-                            <td>Water:</td>
-                            <td>Mist Every Day</td>
-                        </tr>    
-                        <tr>
-                            <td>Atmosphere:</td>
-                            <td>Recommended Indoors</td>
-                        </tr>  
-                        <tr>
-                            <td>Water:</td>
-                            <td>Mist Every Day</td>
-                        </tr>  
-                        <tr>
-                            <td>Pet Friendly:</td>
-                            <td>Your cat will destroy everything</td>
-                        </tr>                      
-                        </tbody>
-                    </table>
-                    <h6>This is a great plant for indoors and for decorating open spaces.</h6>
-            </div>
-        </div>
-        <!-- END New Card (initially hidden) -->
-    <!-- Original Card-->
-    <div class="col">
-        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
-            <img src="../assets/images/bonsai.jpg" class="card-img-top" alt="Plant Image">
-            <div class="card-body">
-                <h5 class="card-title">Bonsai</h5>
-                <button 
-                        type="button" 
-                        class="btn btn-primary" 
-                        onclick="addToGreenhouse(this)">
-                        Add to Greenhouse
-                    </button>
-            </div>
-        </div>
-    <!-- END Original Card-->
-
-    <!-- New Card (initially hidden) -->
-        <div class="card border-primary mb-3 w-100 new-card d-none" onclick="clickCard(this)" style="height: 480px;">
-            <h5 class="card-title">Bonsai</h5>
-                <table class="table table-borderless text-start">
-                    <tbody>
-                    <tr>
-                        <td>Max Size:</td>
-                        <td>1-2ft</td>
-                    </tr>
-                    <tr>
-                        <td>Difficulty:</td>
-                        <td>Advanced</td>
-                    </tr>
-                    <tr>
-                        <td>Light:</td>
-                        <td>Low</td>
-                    </tr>
-                    <tr>
-                        <td>Water:</td>
-                        <td>Soak in Water once a week</td>
-                    </tr>    
-                    <tr>
-                        <td>Atmosphere:</td>
-                        <td>Indoors/Outdoors</td>
-                    </tr>  
-                    <tr>
-                        <td>Hydration:</td>
-                        <td>Mist Every Day</td>
-                    </tr>  
-                    <tr>
-                        <td>Pet Friendly:</td>
-                        <td>Yes</td>
-                    </tr>                      
-                    </tbody>
-                </table>
-                <h6>Recommended for the more skilled plant keepers.</h6>
-        </div>
-    </div>
-    <!-- END New Card (initially hidden) -->
-    <!-- Original Card-->
-    <div class="col">
-        <div class="card border-primary mb-3 w-100 original-card" onclick="clickCard(this)" style="height: 480px;">
-            <img src="../assets/images/aloe-vera-plant-in-square-vase_3.jpg" class="card-img-top" alt="Plant Image">
-            <div class="card-body">
-                <h5 class="card-title">Aloe Vera</h5>
-                <button 
-                        type="button" 
-                        class="btn btn-primary" 
-                        onclick="addToGreenhouse(this)">
-                        Add to Greenhouse
-                    </button>
-            </div>
-        </div>
-    <!-- END Original Card-->
-
-    <!-- New Card (initially hidden) -->
-        <div class="card border-primary mb-3 w-100 d-none new-card" onclick="clickCard(this)" style="height: 480px;">
-            <h5 class="card-title">Aloe Vera (Aloe barbadensis Miller)</h5>
-                <table class="table table-borderless text-start">
-                    <tbody>
-                    <tr>
-                        <td>Max Size:</td>
-                        <td>3ft</td>
-                    </tr>
-                    <tr>
-                        <td>Difficulty:</td>
-                        <td>easy</td>
-                    </tr>
-                    <tr>
-                        <td>Light:</td>
-                        <td>High</td>
-                    </tr>
-                    <tr>
-                        <td>Water:</td>
-                        <td>Once every 2 weeks</td>
-                    </tr>    
-                    <tr>
-                        <td>Atmosphere:</td>
-                        <td>Outdoors</td>
-                    </tr>  
-                    <tr>
-                        <td>Water:</td>
-                        <td>Mist Every Day</td>
-                    </tr>  
-                    <tr>
-                        <td>Pet Friendly:</td>
-                        <td>Your cat will destroy everything</td>
-                    </tr>                      
-                    </tbody>
-                </table>
-                <h6>This is a great plant for indoors and for decorating open spaces.</h6>
-        </div>
-    </div>
-    <!-- END New Card (initially hidden) -->
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+    
+    
     </div>
     <br>
     <div class="text-center">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='index.html';">Return Home</button>
+        <button type="button" class="btn btn-primary" id="ret-btn" onclick="returnHome()">Return Home</button>
         <button type="button" class="btn btn-primary" onclick="window.location.href='greenhouse.html';">Go to My Greenhouse</button>
     </div>
 
 </section>
-
+-->
 
 <!-- end greenhouse-->
 
-        <script src="../scripts/questionnaire.js"></script>
-        <script src="../scripts/matches.js"></script>
+        <script src="../scripts/matches.js" type="module"></script>
+        <!-- <script src="../scripts/matchesButtonWorking.js" type="module"></script> -->
+        <script src="../scripts/questionnaire.js" type="module"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

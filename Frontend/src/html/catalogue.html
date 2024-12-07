@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find My Plant!</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../stylesheets/questionnaire.css">
+        <link rel="stylesheet" href="../stylesheets/greenhouse.css">
+        <link rel="stylesheet" href="../stylesheets/my-colors.css">
+    </head>
+    <body>
+        <section id="navigation-bar">
+            <!--Added zach navigation-->   
+            <nav class="navbar navbar-expand-lg bg-primary fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">FindMyPlant.com</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./greenhouse.html">My Green House</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="questionnaire.html">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+   
+
+        <div id="greenhouse" class="greenhouseContainer">
+            <h1 class="text-center">Plant Catalog</h1>
+<div class="mb-3">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search plants..." oninput="filterPlantsBySearch()">
+</div>
+
+<!-- Filter by Location -->
+<div class="mb-3">
+    <label for="filterLocation" class="form-label">Filter by Location</label>
+    <select id="filterLocation" class="form-select">
+        <option value="All">All</option>
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Indoor/Outdoor">Indoor/Outdoor</option>
+    </select>
+</div>
+    <!-- Filter by Water -->
+    <div class="mb-3">
+        <label for="filterWater" class="form-label">Filter by Water</label>
+        <select id="filterWater" class="form-select">
+            <option value="">All</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <!-- Filter by Pet Friendly -->
+    <div class="mb-3">
+        <label for="filterPetFriendly" class="form-label">Filter by Pet Friendly</label>
+        <select id="filterPetFriendly" class="form-select">
+            <option value="All">All</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Mildly">Mildly</option>
+        </select>
+    </div>   
+
+    <br/>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="greenhouseCards">
+                <!-- Plant cards will be dynamically inserted here -->
+            </div>      
+    </div>
+
+    <script src="../scripts/catalogue.js" type="module"></script>
+    <script type="module">
+        import { filterPlants } from '../scripts/catalogue.js';
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

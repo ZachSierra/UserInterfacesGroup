@@ -12,7 +12,7 @@ body {
   padding: 30px;
   border-radius: 8px;
   max-width: 750px;
-  height: 550px;
+  height: 600px;
   width: 100%;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -35,14 +35,16 @@ body {
 }
 .card-container {
   padding-top: 5px;
-  display: grid;
-  justify-content: center;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
   margin-bottom: 20px;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr 1fr;
 }
-.card {
+.card{
   background-color: #739f62;
   color: #fff;
   border: none;
@@ -54,11 +56,36 @@ body {
   font-weight: 500;
   cursor: pointer;
   height: 70px;
+  position: relative;
+  transform-style: preserve-3d;
   transition: transform 0.2s;
 }
+
 .card:hover {
   transform: scale(1.05);
 }
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  possition: absolute;
+  width: 60%;
+  height: 60px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #fff;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: #f0f0f0;
+  transform: rotateY(180deg);
+}
+
 .skip-button {
   display: grid;
   background-color: #739f62;
@@ -100,7 +127,7 @@ body {
   border-radius: 10px;
   text-align: center;
   max-width: 750px;
-  height: 550px;
+  height: 650px;
   width: 100%;
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -113,6 +140,23 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.greenhouseContainer{
+  height: 100%;
+  padding: 10%;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.plantCard{
+  padding: 10%;
+}
+
+/* .newCard{
+  width: 480px;
+  margin-left: 0px;
+  margin-right: 20px;
+} */
 
 /* Styling for main buttons */
 .completion-buttons {
@@ -791,6 +835,18 @@ summary {
 
 progress {
   vertical-align: baseline;
+}
+
+/* Progress bar */
+#progress-bar-container {
+  margin-bottom: 20px;
+  justify-content: end;
+  align-items: center;  
+}
+
+#progress-text {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 [hidden] {
@@ -4629,7 +4685,7 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 80%;
 }
 
 .card-img,
@@ -5099,6 +5155,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 40px;
   overflow: hidden;
   color: var(--bs-progress-bar-color);
   text-align: center;
@@ -7752,6 +7809,10 @@ textarea.form-control-lg {
   width: 75% !important;
 }
 
+.w-33 {
+  width: 33% !important;
+}
+
 .w-100 {
   width: 100% !important;
 }
@@ -8528,6 +8589,7 @@ textarea.form-control-lg {
 
 .text-center {
   text-align: center !important;
+  padding-bottom: 30px;
 }
 
 .text-decoration-none {

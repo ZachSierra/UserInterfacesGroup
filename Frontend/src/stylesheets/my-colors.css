@@ -2966,6 +2966,10 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
+#ret-btn {
+  background-color:#f0af65;
+}
+
 .btn-primary {
   --bs-btn-color: #000;
   --bs-btn-bg: #7FB073;
@@ -4420,7 +4424,8 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .card-img,
@@ -4428,6 +4433,8 @@ textarea.form-control-lg {
   border-top-left-radius: var(--bs-card-inner-border-radius);
   border-top-right-radius: var(--bs-card-inner-border-radius);
 }
+
+
 
 .card-img,
 .card-img-bottom {

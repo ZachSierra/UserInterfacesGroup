@@ -32,6 +32,40 @@ function populateGreenhouse(plants) {
     });
 }
 
+async function getPlantsFromAPI(id){
+    const url = 'http://ec2-18-116-45-57.us-east-2.compute.amazonaws.com:5000/';
+    const container = document.getElementById("plant-cards-container");
+
+    try {
+        const response = await fetch(url + 'garden/' + id);
+        const json = await response.json();
+        data = json.data;
+        console.log(data);
+        data.forEach((plant) => {
+            // Create the Bootstrap Card
+            const card = document.createElement("div");
+            card.className = "col-md-2"; // Bootstrap column
+            card.innerHTML = `
+            <div class="card original-card" onclick="clickCard(this)">
+                <img src="${plant.ImageLoc}" class="card-img-top" alt="${plant.Common_Name}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">${plant.Common_Name}</h5>
+                </div>
+            </div>
+            <div class="card new-card d-none" onclick="clickCard(this)">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Details for ${plant.Common_Name}</h5>
+                    <p>This is some extra information about the plant.</p>
+                </div>
+            </div>
+        `;
+            container.appendChild(card);
+        });
+    } catch (e) {
+        console.error('There has been a problem with your fetch operation:', error);
+    }
+}
+
 
 function clickCard(card) {
     if (card.classList.contains('original-card')) {
