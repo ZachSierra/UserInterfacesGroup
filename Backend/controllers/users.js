@@ -26,5 +26,15 @@ const getUser = async (req, res, next) => {
     }
     next();
 }
+const createUser = async (req, res, next) => {
+    try {
+        const newUser = new users(null, req.body.username, req.body.password, req.body.email, null);
+        const [_, __] = await newUser.createUser();
+        res.status(201).json(new resJson('User created', null));
+    } catch (error) {
+        res.status(500).json(new resJson('Error: ' + error, null));
+    }
+    next();
+}
 
-module.exports = { getAllUsers, getUser };
+module.exports = { getAllUsers, getUser, createUser };

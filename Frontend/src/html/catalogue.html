@@ -36,6 +36,9 @@
                                 <a class="nav-link" href="questionnaire.html">Quiz</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="./catalogue.html">Catalogue</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./login.html">Account</a>
                             </li>
                         </ul>
@@ -45,12 +48,22 @@
         </section>
    
 
-<div id="greenhouse" class="greenhouseContainer">
-            <!-- Add filter dropdowns above the search input -->
-    <div class="mb-3">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search plants..." oninput="filterPlants()">
-    </div>
+        <div id="greenhouse" class="greenhouseContainer">
+            <h1 class="text-center">Plant Catalogue</h1>
+<div class="mb-3">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search plants..." oninput="filterPlantsBySearch()">
+</div>
 
+<!-- Filter by Location -->
+<div class="mb-3">
+    <label for="filterLocation" class="form-label">Filter by Location</label>
+    <select id="filterLocation" class="form-select">
+        <option value="All">All</option>
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+        <option value="Indoor/Outdoor">Indoor/Outdoor</option>
+    </select>
+</div>
     <!-- Filter by Water -->
     <div class="mb-3">
         <label for="filterWater" class="form-label">Filter by Water</label>

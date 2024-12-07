@@ -1,7 +1,13 @@
-/*export function filterPlants() {
+export function filterPlantsBySearch() {
     const searchQuery = document.getElementById("searchInput").value.toLowerCase();
     const plantCards = document.querySelectorAll(".card");
 
+    if (!searchQuery) {
+        console.log("Resetting to show all cards...");
+        initializeCatalogue(); // Re-render the entire catalogue
+        
+        return; // Exit the function as no further filtering is needed
+    }
     plantCards.forEach(card => {
         const plantName = card.querySelector(".card-title") ? card.querySelector(".card-title").textContent.toLowerCase() : "";
 
@@ -12,7 +18,7 @@
         }
     });
 }
-*/
+
 export function filterPlants() {
     const petFriendlyFilter = document.getElementById("filterPetFriendly").value; // Pet-friendly filter value
     const plantCards = document.querySelectorAll(".card"); // All plant cards
@@ -29,7 +35,6 @@ export function filterPlants() {
     plantCards.forEach(card => {
         // Get the "data-pet-friendly" attribute for each card
         const plantPetFriendly = card.getAttribute("data-pet-friendly");
-        
         // Check if the plant matches the pet-friendly filter
         const matchesPetFriendly = petFriendlyFilter ? plantPetFriendly === petFriendlyFilter.toLowerCase() : true;
 
@@ -40,6 +45,41 @@ export function filterPlants() {
             card.classList.add('d-none'); // Hide the card
         }
 
+        // Hide the new card if the filter doesn't match
+        const newCard = document.getElementById(card.id + "-new");
+        if (newCard) {
+            newCard.classList.add('d-none'); // Hide the new card when filter doesn't match
+        }
+    });
+}
+
+
+export function filterPlantsByLocation() {
+    const locationFilter = document.getElementById("filterLocation").value; // Pet-friendly filter value
+    const plantCards = document.querySelectorAll(".card"); // All plant cards
+
+    // If filter is set to "All", show all cards and hide new cards
+    if (locationFilter === "All") {
+        console.log("Resetting to show all cards...");
+        initializeCatalogue(); // Re-render the entire catalogue
+        
+        return; // Exit the function as no further filtering is needed
+    }
+
+    // Loop through all the plant cards to apply filters
+    plantCards.forEach(card => {
+      
+        const plantLocation = card.getAttribute("data-location");
+        
+      
+        const matchesLocation = locationFilter ? plantLocation === locationFilter.toLowerCase() : true;
+
+        // Show or hide the original card based on the filter
+        if (matchesLocation) {
+            card.classList.remove('d-none'); // Show the card
+        } else {
+            card.classList.add('d-none'); // Hide the card
+        }
         // Hide the new card if the filter doesn't match
         const newCard = document.getElementById(card.id + "-new");
         if (newCard) {
@@ -69,10 +109,15 @@ function parseCSV(data) {
     const rows = data.split("\n").filter(row => row.trim()); // Remove empty rows
     const plants = rows.map(row => {
         const [commonName, scientificName, maxSize, difficulty, location, light, water, growthHabit, flowering, aesthetic, atmosphere, colors, temperature, humidity, pet_friendly, pest_resistant, description ] = row.split(",");
+        let displayLocation = location; // Use a new variable
+        if (location === "Both") {
+            displayLocation = "Indoor/Outdoor";
+        }
         return {
             commonName: commonName.trim(),
             scientificName: scientificName.trim(),
-            maxSize: maxSize.trim(),
+            maxSize: maxSize.trim() + " ft.",
+            location: displayLocation.trim(),
             difficulty: difficulty.trim(),
             light: light.trim(),
             water: water.trim(),
@@ -108,7 +153,8 @@ function renderPlantCatalogue(plants) {
         originalCard.setAttribute("data-water", plant.water.toLowerCase());
         //originalCard.setAttribute("data-pet-friendly", plant.pet_friendly ? "Yes" : "No");
         originalCard.setAttribute("data-pet-friendly", plant.pet_friendly.toLowerCase());
-
+        originalCard.setAttribute("data-location", plant.location.toLowerCase());
+        
         originalCard.innerHTML = `
             <div>
                 <img src="${plant.img}" class="card-img-top" alt="${plant.commonName}">
@@ -139,6 +185,10 @@ function renderPlantCatalogue(plants) {
                 <tr>
                     <td>Difficulty:</td>
                     <td>${plant.difficulty}</td>
+                </tr>
+                <tr>
+                <td>Location:</td>
+                <td>${plant.location}</td>
                 </tr>
                 <tr>
                     <td>Light:</td>
@@ -241,9 +291,9 @@ function clickCard(card) {
 
 // Set up event listener for search input
 const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", filterPlants);
+searchInput.addEventListener("input", filterPlantsBySearch);
 // Add event listeners for dropdown filters
-document.getElementById("filterWater").addEventListener("change", filterPlants);
+document.getElementById("filterLocation").addEventListener("change", filterPlantsByLocation);
 document.getElementById("filterPetFriendly").addEventListener("change", filterPlants);
 /*
 //If we want it to work after user hits the enter button
