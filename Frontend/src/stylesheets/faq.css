@@ -1,5 +1,5 @@
 .inputFAQ {
-    background: rgba(255, 255, 255, 0.25);
+    background: white;
     box-shadow: 0 8px 32px 0 rgba(82, 82, 83, 0.37);
     color: black;
     opacity: 0.75;
@@ -15,7 +15,6 @@
   .inputFAQ:focus {
     display: inline-block;
     box-shadow: 0 0 0 0.2rem white;
-    backdrop-filter: blur(12rem);
     border-radius: 2rem;
     transition: 0.5s;
   }
@@ -43,6 +42,6 @@
     padding: 0;
     width: 100%;
     min-height: 100vh;/* Takes up full viewport height */
-    background-color: #F5EFE6;
+    background-color: white;
  }
  
